@@ -1,0 +1,43 @@
+{
+  "benchmark_timestamp_utc": "2026-09-29T16:47:18Z",
+  "total_orders_tested": 100000,
+  "total_duration_seconds": 0.5012,
+  "throughput_orders_per_second": 199517.2,
+  "sla_targets": {
+    "mean_latency_budget_ms": 0.2,
+    "p95_latency_budget_ms": 0.29
+  },
+  "latency_statistics_microseconds": {
+    "mean_us": 1.93,
+    "median_p50_us": 1.9,
+    "p90_us": 2.4,
+    "p95_us": 2.6,
+    "p99_us": 4.6,
+    "p99_9_us": 15.0,
+    "max_us": 403.4,
+    "std_dev_us": 3.91
+  },
+  "latency_statistics_milliseconds": {
+    "mean_ms": 0.0019,
+    "median_p50_ms": 0.0019,
+    "p90_ms": 0.0024,
+    "p95_ms": 0.0026,
+    "p99_ms": 0.0046,
+    "p99_9_ms": 0.015,
+    "max_ms": 0.4034
+  },
+  "verdict_distribution": {
+    "APPROVED": 58000,
+    "MODIFIED_ONE_LOT_GOVERNOR": 15400,
+    "REJECTED_TILT_MARTINGALE": 6000,
+    "REJECTED_ACCOUNT_LOCKED": 20000,
+    "REJECTED_FAT_FINGER_LIMIT": 600
+  },
+  "audit_pass_verdict": {
+    "mean_sla_passed": true,
+    "p95_sla_passed": true,
+    "overall_audit_passed": true,
+    "margin_under_budget_mean_pct": 99.04,
+    "margin_under_budget_p95_pct": 99.1
+  }
+}
