@@ -68,10 +68,14 @@ def read_src(rel_path: str, max_chars: int = 12000) -> str:
     return ""
 
 polyglot_sources = {
-    "rust": read_src(os.path.join("rust_feedserver", "src", "lib.rs")),
-    "go": read_src(os.path.join("go_ems_router", "ems_router.go")),
+    "rust": read_src(os.path.join("rust_feedserver", "src", "lib.rs")) + "\n\n// --- 64-BYTE WIRE CODEC ---\n" + read_src(os.path.join("rust_feedserver", "src", "wire_frame_codec.rs")),
+    "go": read_src(os.path.join("go_ems_router", "ems_router.go")) + "\n\n// --- 0DTE EXPIRY BROKER RACE ---\n" + read_src(os.path.join("go_ems_router", "broker_race_simulator.go")),
+    "cpp": read_src(os.path.join("cpp_simd_greeks", "simd_bsm_vanna.hpp")),
+    "wasm": read_src(os.path.join("wasm_wire_decoder", "sahi_zero_copy_frame.wat")),
     "scylla": read_src(os.path.join("scylladb", "schema.cql")),
+    "sql": read_src(os.path.join("analytics_sql", "cfo_arr_ltv_model.sql")),
     "ts": read_src(os.path.join("ts_webmcp_sdk", "webmcp_sdk.ts")),
+    "tsx": read_src(os.path.join("ts_webmcp_sdk", "KyroVoiceCommandHook.tsx")),
     "python": read_src(os.path.join("engine", "kyro_execution_engine.py"), 14000),
 }
 
