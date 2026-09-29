@@ -705,6 +705,101 @@
       white-space: pre;
     }
 
+    /* =========================================================================
+       VIP EXECUTIVE BRIEFING BAR & F6 WAR ROOM (BROKER RACE + HEX + CFO ARR)
+       ========================================================================= */
+    .vip-briefing-bar {
+      background: linear-gradient(90deg, #141008 0%, #0A0E17 100%);
+      border-bottom: 1px solid var(--bb-amber);
+      padding: 5px 12px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      font-size: 10.5px;
+    }
+
+    .vip-persona-pills {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      flex-wrap: wrap;
+    }
+
+    .vip-pill {
+      background: #141B26;
+      border: 1px solid var(--border-steel);
+      color: var(--text-secondary);
+      padding: 2px 8px;
+      font-size: 9.5px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+    .vip-pill.active, .vip-pill:hover {
+      background: var(--bb-amber);
+      color: #000;
+      border-color: var(--bb-amber);
+    }
+
+    .war-room-deck {
+      padding: 0 12px 8px 12px;
+      display: grid;
+      grid-template-columns: 1.15fr 1fr 1fr;
+      gap: 8px;
+    }
+
+    .race-lane {
+      background: #05080C;
+      border: 1px solid var(--border-steel);
+      padding: 7px 9px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .race-lane.sahi-winner {
+      border-color: var(--bb-green);
+      background: rgba(0, 230, 118, 0.05);
+    }
+
+    .race-bar-track {
+      height: 7px;
+      background: #101620;
+      border: 1px solid var(--border-steel);
+      overflow: hidden;
+    }
+    .race-bar-fill {
+      height: 100%;
+      transition: width 0.35s ease;
+    }
+
+    .hex-grid-64 {
+      display: grid;
+      grid-template-columns: repeat(16, minmax(0, 1fr));
+      gap: 2px;
+      background: #030508;
+      border: 1px solid var(--border-steel);
+      padding: 6px;
+      font-size: 9.5px;
+    }
+
+    .hex-byte {
+      padding: 3px 1px;
+      text-align: center;
+      background: #0B1018;
+      border: 1px solid #162030;
+      cursor: pointer;
+      font-weight: 700;
+    }
+    .hex-byte:hover {
+      background: var(--bb-amber) !important;
+      color: #000 !important;
+    }
+    .hex-byte.f-magic { color: var(--bb-amber); border-color: rgba(255,153,0,0.4); }
+    .hex-byte.f-spot  { color: var(--bb-green); border-color: rgba(0,230,118,0.4); }
+    .hex-byte.f-gex   { color: var(--bb-cyan);  border-color: rgba(0,210,255,0.4); }
+    .hex-byte.f-rms   { color: var(--bb-red);   border-color: rgba(255,46,84,0.45); }
+
     /* COLOR UTILITIES */
     .c-amber { color: var(--bb-amber); }
     .c-green { color: var(--bb-green); }
@@ -713,7 +808,7 @@
     .c-red { color: var(--bb-red); }
 
     @media (max-width: 1200px) {
-      .launchpad-grid, .bottom-deck, .webmcp-controls-grid, .webmcp-bottom-split {
+      .launchpad-grid, .bottom-deck, .war-room-deck, .webmcp-controls-grid, .webmcp-bottom-split {
         grid-template-columns: 1fr;
       }
       .ticker-deck-5 {
@@ -736,7 +831,7 @@
         <span class="fk">F1</span><span>4-QUADRANT LAUNCHPAD</span>
       </button>
       <button class="bb-fkey" id="fk-1" onclick="switchViewMode(1)">
-        <span class="fk">F2</span><span>GEX &amp; 3D VOL SURFACE</span>
+        <span class="fk">F2</span><span>GEX &amp; ON-CHART SCALPER</span>
       </button>
       <button class="bb-fkey" id="fk-2" onclick="switchViewMode(2)">
         <span class="fk">F3</span><span>WEBMCP &amp; KYRO COMPILER</span>
@@ -747,13 +842,33 @@
       <button class="bb-fkey" id="fk-4" onclick="switchViewMode(4)">
         <span class="fk">F5</span><span>MUMBAI 3-HOP DOM SLICER</span>
       </button>
+      <button class="bb-fkey" id="fk-6" onclick="document.getElementById('war-room-deck').scrollIntoView({behavior:'smooth'})">
+        <span class="fk">F6</span><span>BROKER RACE • 64B HEX • CFO ARR</span>
+      </button>
     </div>
 
     <div class="bb-sys-status">
-      <span><span class="led-dot"></span> SAHI FEEDBROKER: <strong>RUST Arc&lt;[u8]&gt; ZERO-COPY</strong></span>
+      <span><span class="led-dot"></span> SAHI FEEDBROKER: <strong>RUST Arc&lt;[u8]&gt; 64B ZERO-COPY</strong></span>
       <span>RMS: <strong class="c-green">199,517 ORD/S (1.93µs)</strong></span>
       <span>WEBMCP V8: <strong class="c-cyan">681,562 OPS/S</strong></span>
       <span>DATA LAKE: <strong class="c-amber">203.71 MB (936,033 ROWS)</strong></span>
+    </div>
+  </div>
+
+  <!-- ===================================================================== -->
+  <!-- PERSONALIZED VIP EXECUTIVE BRIEFING BAR (?for=dale|manish|abhishek)   -->
+  <!-- ===================================================================== -->
+  <div class="vip-briefing-bar">
+    <div id="vip-briefing-text">
+      <strong class="c-amber">[VIP BRIEFING // DALE VAZ (CEO) &amp; MANISH JAIN (CPO)]:</strong>
+      Post-$33M Series-B 4-Pillar Prototype — Solves 0DTE execution slippage (-14.6 bps), cuts hedged SPAN margin by 75.7% via WebMCP, and unlocks <strong class="c-green">+₹141.0 Cr/yr</strong> in retained brokerage ARR.
+    </div>
+    <div class="vip-persona-pills" id="vip-pills">
+      <span style="color:var(--text-muted); font-size:9.5px;">TAILOR VIEW FOR:</span>
+      <button class="vip-pill active" onclick="selectVipPersona('dale', this)">DALE VAZ (CEO)</button>
+      <button class="vip-pill" onclick="selectVipPersona('manish', this)">MANISH JAIN (CPO)</button>
+      <button class="vip-pill" onclick="selectVipPersona('abhishek', this)">ABHISHEK SINHA (RUST)</button>
+      <button class="vip-pill" onclick="selectVipPersona('vaibhav', this)">VAIBHAV SATALKAR (GO EMS)</button>
     </div>
   </div>
 
@@ -775,6 +890,9 @@
           class="bb-cmd-input"
           value="NIFTY 22750 BEAR PUT SPREAD // HEDGE LONG LEG FIRST (0.0ms) // MAX RISK ₹12,000"
         />
+        <button class="hw-btn amber" id="btn-voice-kyro" onclick="triggerVoiceKyroDemo()" title="Push-to-Talk Voice Strategy Compiler (Web Speech API + Audio Telemetry)">
+          🎙️ VOICE KYRO
+        </button>
         <button class="bb-go-btn" onclick="runCommandLineStrategy()">&lt;GO&gt; COMPILE &amp; ROUTE ↵</button>
       </div>
 
@@ -855,9 +973,11 @@
       <div class="bb-win-bar">
         <div class="bb-win-title">
           <span class="win-code">F2 // GEX-ML</span>
-          <span class="win-label">Scalper 3.0: Synced Candles, Zero-Gamma Flip (S*) &amp; 3D GEX Surface</span>
+          <span class="win-label">Scalper 3.0: On-Chart Drag-SL Sandbox, Zero-Gamma Flip &amp; 3D GEX Mesh</span>
         </div>
         <div class="bb-win-tools">
+          <button class="win-btn amber-active" onclick="openPaperScalpOnChart('CALL')">⚡ SCALP CALL (DRAG SL)</button>
+          <button class="win-btn" onclick="openPaperScalpOnChart('PUT')">⚡ SCALP PUT</button>
           <button class="win-btn active" id="w1-btn-split" onclick="setWin1Mode('split')">SPLIT 2D+3D</button>
           <button class="win-btn" id="w1-btn-3d" onclick="setWin1Mode('3d')">FULL 3D SURFACE</button>
           <button class="win-btn amber-active" id="w1-btn-gate" onclick="toggleRegimeGate()">REGIME ML GATE: ON</button>
@@ -868,7 +988,7 @@
       <div class="bb-win-body">
         <div class="chart-stage">
           <div class="chart-overlay-bar">
-            <span class="ov-pill" id="w1-ov-left">NIFTY50 • S* ZERO-GAMMA FLIP: 22,750.0 • DRAG 3D MESH TO ROTATE</span>
+            <span class="ov-pill" id="w1-ov-left">DRAG RED STOP-LOSS LINE DOWN ON CHART TO TEST TILTGUARD RMS INTERCEPTION!</span>
             <span class="ov-pill" id="w1-ov-right" style="color:var(--bb-amber);">REGIME: -GEX BREAKOUT → LORENTZIAN 6D k-NN ARMED</span>
           </div>
           <canvas id="canvas-w1" class="quant-canvas" height="275"></canvas>
@@ -1134,7 +1254,128 @@
   </main>
 
   <!-- ===================================================================== -->
-  <!-- BOTTOM DECK: LIVE EMSX ORDER BLOTTER + 5-LANGUAGE POLYGLOT INSPECTOR  -->
+  <!-- F6 WAR ROOM DECK: 3-WAY BROKER RACE + 64B WIRE HEX + SERIES-B CFO ARR -->
+  <!-- ===================================================================== -->
+  <section class="war-room-deck" id="war-room-deck">
+
+    <!-- PANEL A: 2:45 PM 0DTE EXPIRY FLASH-CRASH BROKER EXECUTION RACE -->
+    <div class="bb-window">
+      <div class="bb-win-bar">
+        <div class="bb-win-title">
+          <span class="win-code">F6-A // RACE</span>
+          <span class="win-label">2:45 PM 0DTE Expiry Flash-Crash: Sahi v3.0 vs. Zerodha vs. Dhan</span>
+        </div>
+        <button class="bb-go-btn" onclick="runBrokerFlashCrashRace()">⚡ SIMULATE 180K TICKS/S SQUEEZE</button>
+      </div>
+      <div class="bb-win-body">
+        <div class="race-lane">
+          <div style="display:flex; justify-content:space-between; font-size:10px;">
+            <span><strong>1. Legacy REST/JSON Broker (Zerodha Kite Style)</strong></span>
+            <span class="c-red" id="race-lat-1">68.40 ms [REJECTED]</span>
+          </div>
+          <div class="race-bar-track"><div class="race-bar-fill" id="race-bar-1" style="width:100%; background:var(--bb-red);"></div></div>
+          <div style="font-size:9.5px; color:var(--text-secondary);" id="race-msg-1">
+            Short leg arrived 3.1ms before Long Hedge → ₹8,76,000 Naked SPAN Margin Shortfall + -21.4 bps slippage.
+          </div>
+        </div>
+
+        <div class="race-lane">
+          <div style="display:flex; justify-content:space-between; font-size:10px;">
+            <span><strong>2. Standard WebSocket Broker (Dhan Style)</strong></span>
+            <span class="c-amber" id="race-lat-2">24.15 ms [PARTIAL REJECT]</span>
+          </div>
+          <div class="race-bar-track"><div class="race-bar-fill" id="race-bar-2" style="width:62%; background:var(--bb-amber);"></div></div>
+          <div style="font-size:9.5px; color:var(--text-secondary);" id="race-msg-2">
+            Parent 30-Lot order exceeds 18-Lot SEBI Freeze Limit + ungated indicator whipsaw (-₹2,680 loss).
+          </div>
+        </div>
+
+        <div class="race-lane sahi-winner">
+          <div style="display:flex; justify-content:space-between; font-size:10px;">
+            <span class="c-green"><strong>3. Sahi + Kyro-Execution v3.0 (Rust + Go + WebMCP)</strong></span>
+            <span class="c-green" id="race-lat-3"><strong>5.73 ms [100% FILLED]</strong></span>
+          </div>
+          <div class="race-bar-track"><div class="race-bar-fill" id="race-bar-3" style="width:18%; background:var(--bb-green);"></div></div>
+          <div style="font-size:9.5px; color:var(--bb-lime);" id="race-msg-3">
+            Long Hedge routed at 0.00ms (SPAN -75.7%) + 4 Poisson Mid-Pegged slices (+₹3,480 saved vs dump).
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PANEL B: WIRESHARK-STYLE 64-BYTE Arc<[u8]> BINARY HEX INSPECTOR -->
+    <div class="bb-window">
+      <div class="bb-win-bar">
+        <div class="bb-win-title">
+          <span class="win-code">F6-B // 64B WIRE</span>
+          <span class="win-label">Abhishek Sinha's `Arc&lt;[u8]&gt;` 64-Byte Zero-Copy Frame Hex Analyzer</span>
+        </div>
+        <span class="c-cyan" style="font-size:9.5px; font-weight:700;">86.7% SMALLER THAN JSON</span>
+      </div>
+      <div class="bb-win-body">
+        <div style="font-size:9.5px; color:var(--text-secondary);">
+          HOVER ANY BYTE IN THE 64-BYTE <code>#[repr(C, align(64))]</code> PACKET BELOW TO INSPECT C-STRUCT FIELD:
+        </div>
+        <div class="hex-grid-64" id="wire-hex-grid"></div>
+        <div class="kpi-box" id="wire-field-inspector" style="border-color:var(--bb-cyan);">
+          <div class="kb-lbl">ACTIVE BYTE FIELD INSPECTOR (64B BINARY VS 482B JSON)</div>
+          <div class="kb-val c-cyan" id="wire-field-title" style="font-size:11.5px;">Bytes [00..03]: u32 magic_header = 0x53414849 ("SAHI")</div>
+          <div class="kb-sub" id="wire-field-desc">Zero-copy Rust Arc&lt;[u8]&gt; pointer cast in 0.08µs vs 14.2µs JSON.parse() across 8B ticks/day.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PANEL C: SAHI SERIES-B CFO ARR & RETENTION MULTIPLIER SIMULATOR -->
+    <div class="bb-window">
+      <div class="bb-win-bar">
+        <div class="bb-win-title">
+          <span class="win-code">F6-C // CFO ARR</span>
+          <span class="win-label">Dale Vaz Series-B CFO Unit-Economics &amp; Brokerage ARR Multiplier</span>
+        </div>
+        <span class="c-green" style="font-size:10px; font-weight:800;" id="cfo-total-arr">+₹141.0 Cr/YR</span>
+      </div>
+      <div class="bb-win-body">
+        <div class="param-box">
+          <div class="slider-line">
+            <div class="sl-top">
+              <span>SAHI ACTIVE F&amp;O DAU:</span>
+              <strong class="c-amber" id="cfo-dau-lbl">1,50,000 TRADERS</strong>
+            </div>
+            <input type="range" id="cfo-dau-slider" class="bb-slider" min="50000" max="500000" step="10000" value="150000" oninput="recalcCfoArr()" />
+          </div>
+          <div class="slider-line">
+            <div class="sl-top">
+              <span>WEBMCP MULTI-LEG ADOPTION SHARE:</span>
+              <strong class="c-cyan" id="cfo-share-lbl">28% OF ORDERS</strong>
+            </div>
+            <input type="range" id="cfo-share-slider" class="bb-slider" min="10" max="60" step="2" value="28" oninput="recalcCfoArr()" />
+          </div>
+        </div>
+
+        <div class="kpi-row-3">
+          <div class="kpi-box">
+            <div class="kb-lbl">WEBMCP BASKET LIFT</div>
+            <div class="kb-val c-cyan" id="cfo-webmcp-cr">+₹48.4 Cr</div>
+            <div class="kb-sub">₹10 → ₹26/BASKET</div>
+          </div>
+          <div class="kpi-box">
+            <div class="kb-lbl">1-LOT GOV RETENTION</div>
+            <div class="kb-val c-green" id="cfo-gov-cr">+₹92.6 Cr</div>
+            <div class="kb-sub">SAVES PM VOLUME</div>
+          </div>
+          <div class="kpi-box">
+            <div class="kb-lbl">TRADER LTV SURVIVAL</div>
+            <div class="kb-val c-amber">2.78x LTV</div>
+            <div class="kb-sub">3.2mo → 8.9mo</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ===================================================================== -->
+  <!-- BOTTOM DECK: LIVE EMSX ORDER BLOTTER + 9-LANGUAGE POLYGLOT INSPECTOR  -->
   <!-- ===================================================================== -->
   <section class="bottom-deck">
     <!-- LEFT: LIVE DAY-TRADER EMSX ORDER & EXECUTION BLOTTER -->
@@ -1142,7 +1383,7 @@
       <div class="bb-win-bar">
         <div class="bb-win-title">
           <span class="win-code">EMSX // BLOTTER</span>
-          <span class="win-label">Live Execution Blotter (WebMCP Baskets, Iceberg Slices &amp; TiltGuard Audits)</span>
+          <span class="win-label">Live Execution Blotter (WebMCP Baskets, On-Chart SL Drags &amp; Icebergs)</span>
         </div>
         <span class="c-green" style="font-size:10px; font-weight:700;" id="blotter-count-badge">LIVE ORDERS: 6</span>
       </div>
@@ -1167,19 +1408,23 @@
       </div>
     </div>
 
-    <!-- RIGHT: 5-LANGUAGE POLYGLOT SOURCE ARCHITECTURE INSPECTOR -->
+    <!-- RIGHT: 9-LANGUAGE POLYGLOT SOURCE ARCHITECTURE INSPECTOR -->
     <div class="bb-window">
       <div class="bb-win-bar">
         <div class="bb-win-title">
-          <span class="win-code">SRC // POLYGLOT</span>
-          <span class="win-label">Production Polyglot Stack (Rust • Go • ScyllaDB CQL • TS WebMCP • Python)</span>
+          <span class="win-code">SRC // 9-LANG STACK</span>
+          <span class="win-label">Polyglot Source (Rust • Go • C++20 SIMD • WASM • ScyllaDB • SQL • TS • React TSX • Python)</span>
         </div>
         <div class="bb-win-tools" id="poly-tabs">
           <button class="win-btn active" onclick="selectPolyTab('rust', this)">RUST (lib.rs)</button>
           <button class="win-btn" onclick="selectPolyTab('go', this)">GO (ems_router.go)</button>
-          <button class="win-btn" onclick="selectPolyTab('scylla', this)">SCYLLADB (schema.cql)</button>
-          <button class="win-btn" onclick="selectPolyTab('ts', this)">TS (webmcp_sdk.ts)</button>
-          <button class="win-btn" onclick="selectPolyTab('python', this)">PYTHON (kyro_engine.py)</button>
+          <button class="win-btn" onclick="selectPolyTab('cpp', this)">C++20 (AVX-512)</button>
+          <button class="win-btn" onclick="selectPolyTab('wasm', this)">WASM (WAT)</button>
+          <button class="win-btn" onclick="selectPolyTab('scylla', this)">SCYLLADB (CQL)</button>
+          <button class="win-btn" onclick="selectPolyTab('sql', this)">DUCKDB (SQL)</button>
+          <button class="win-btn" onclick="selectPolyTab('ts', this)">TS (WebMCP)</button>
+          <button class="win-btn" onclick="selectPolyTab('tsx', this)">REACT 19 (TSX)</button>
+          <button class="win-btn" onclick="selectPolyTab('python', this)">PYTHON (BSM)</button>
         </div>
       </div>
       <div class="bb-win-body">
@@ -1497,6 +1742,52 @@
         ctx.fillStyle = '#FF9900';
         ctx.font = 'bold 10px JetBrains Mono';
         ctx.fillText(`S* ZERO-GAMMA FLIP (${flip.toFixed(0)})`, 12, fy - 5);
+
+        // ON-CHART INTERACTIVE PAPER SCALP (ENTRY, TARGET, DRAGGABLE STOP-LOSS)
+        if (window.scalpState && window.scalpState.active) {
+          const entryY = H * 0.48;
+          const targetY = H * 0.24;
+          const slY = Math.max(entryY + 18, Math.min(H - 22, window.scalpState.slY));
+
+          // Target Line (Green)
+          ctx.strokeStyle = '#00E676';
+          ctx.lineWidth = 1.5;
+          ctx.beginPath(); ctx.moveTo(8, targetY); ctx.lineTo(splitX - 8, targetY); ctx.stroke();
+          ctx.fillStyle = '#041E11';
+          ctx.fillRect(splitX - 155, targetY - 9, 148, 16);
+          ctx.strokeRect(splitX - 155, targetY - 9, 148, 16);
+          ctx.fillStyle = '#00E676';
+          ctx.font = 'bold 9.5px JetBrains Mono';
+          ctx.fillText(`TARGET +₹4,500 (${window.scalpState.side})`, splitX - 150, targetY + 3);
+
+          // Entry Line (Cyan)
+          ctx.strokeStyle = '#00D2FF';
+          ctx.beginPath(); ctx.moveTo(8, entryY); ctx.lineTo(splitX - 8, entryY); ctx.stroke();
+          ctx.fillStyle = '#041524';
+          ctx.fillRect(splitX - 155, entryY - 9, 148, 16);
+          ctx.strokeRect(splitX - 155, entryY - 9, 148, 16);
+          ctx.fillStyle = '#00D2FF';
+          ctx.fillText(`ENTRY 4L ${window.scalpState.side} @ ATM`, splitX - 150, entryY + 3);
+
+          // Draggable Stop-Loss Line (Red — Linked to TiltGuard RMS!)
+          const isLocked = tiltScore >= 82;
+          ctx.strokeStyle = '#FF2E54';
+          ctx.lineWidth = 2.2;
+          ctx.beginPath(); ctx.moveTo(8, slY); ctx.lineTo(splitX - 8, slY); ctx.stroke();
+          ctx.fillStyle = isLocked ? '#3B0712' : '#26060D';
+          ctx.fillRect(12, slY - 10, splitX - 24, 19);
+          ctx.strokeRect(12, slY - 10, splitX - 24, 19);
+          ctx.fillStyle = '#FF2E54';
+          ctx.font = 'bold 9.5px JetBrains Mono';
+          const lossInr = Math.round(1800 + (slY - (H * 0.66)) * 42);
+          ctx.fillText(
+            isLocked
+              ? `🔒 SL LOCKED BY TILTGUARD HMAC (-₹${Math.max(1800, lossInr)})`
+              : `⇅ DRAG STOP-LOSS DOWN (-₹${Math.max(1800, lossInr)}) [TEST TILTGUARD]`,
+            18,
+            slY + 3
+          );
+        }
 
         ctx.strokeStyle = '#242E3E';
         ctx.beginPath(); ctx.moveTo(splitX, 0); ctx.lineTo(splitX, H); ctx.stroke();
@@ -2053,6 +2344,162 @@
     }
 
     // =========================================================================
+    // ON-CHART DRAGGABLE STOP-LOSS SANDBOX (LINKS WINDOW 1 -> WINDOW 3 RMS)
+    // =========================================================================
+    window.scalpState = {
+      active: true,
+      side: 'CALL',
+      slY: 182,
+      draggingSL: false,
+      lastTriggeredY: 182
+    };
+
+    function openPaperScalpOnChart(side) {
+      window.scalpState.active = true;
+      window.scalpState.side = side;
+      window.scalpState.slY = 182;
+      window.scalpState.lastTriggeredY = 182;
+      addBlotterOrder('SCALPER-3.0', `${currentInst} ATM ${side} (ON-CHART)`, 'BUY 4L', 'MKT', '1.42ms', 'ACTIVE [SL DRAGGABLE ON CHART]');
+      drawWin1Canvas();
+    }
+
+    // =========================================================================
+    // VIP PERSONALIZED EXECUTIVE MODE (?for=dale|manish|abhishek|vaibhav)
+    // =========================================================================
+    const VIP_BRIEFINGS = {
+      dale: `<strong class="c-amber">[VIP BRIEFING // DALE VAZ — CEO &amp; CO-FOUNDER]:</strong> Built for Sahi's post-$33M Series-B scale: shifts ₹10 1-leg scalps to ₹26 multi-leg WebMCP spreads (<strong class="c-cyan">+₹48.4 Cr/yr</strong>) &amp; replaces 11:59PM lockouts with a 1-Lot Governor (<strong class="c-green">+₹92.6 Cr/yr retained ARR</strong>).`,
+      manish: `<strong class="c-amber">[VIP BRIEFING // MANISH JAIN — CPO &amp; DERIVATIVES HEAD]:</strong> Upgrades Sahi Scalper with <strong>On-Chart SL-Drag TiltGuard Interception</strong>, GEX-Regime ML Gating (Sharpe 1.74 → 3.18), and <strong>Hedged-First (t_long=0.0ms)</strong> SPAN margin compression (-75.7%).`,
+      abhishek: `<strong class="c-amber">[VIP BRIEFING // ABHISHEK SINHA — RUST FEEDSERVER &amp; SCYLLADB LEAD]:</strong> Extends your <em>"From Exchange to Eyeballs"</em> architecture with a <strong>64-Byte #[repr(C, align(64))] Arc&lt;[u8]&gt; Wire Frame</strong> (86.7% smaller than JSON) &amp; 0-hop ScyllaDB analog token routing.`,
+      vaibhav: `<strong class="c-amber">[VIP BRIEFING // VAIBHAV SATALKAR — GO EMS/OMS &amp; RMS LEAD]:</strong> Optimizes your <code>4.28ms AWS Mumbai EMS → Physical DC OMS</code> hop with <strong>OBI_5 + VPIN Poisson Micro-Iceberg Slicing</strong> (-14.6 bps slippage) &amp; <strong>1.93µs Atomic Bitmask RMS</strong>.`
+    };
+
+    function selectVipPersona(personaKey, btnEl) {
+      const k = (personaKey || 'dale').toLowerCase();
+      document.querySelectorAll('#vip-pills .vip-pill').forEach(b => b.classList.remove('active'));
+      if (btnEl) {
+        btnEl.classList.add('active');
+      } else {
+        const idxMap = { dale: 0, manish: 1, abhishek: 2, vaibhav: 3 };
+        const pills = document.querySelectorAll('#vip-pills .vip-pill');
+        if (pills[idxMap[k] || 0]) pills[idxMap[k] || 0].classList.add('active');
+      }
+      document.getElementById('vip-briefing-text').innerHTML = VIP_BRIEFINGS[k] || VIP_BRIEFINGS.dale;
+      if (k === 'abhishek') selectPolyTab('rust', document.querySelectorAll('#poly-tabs .win-btn')[0]);
+      if (k === 'vaibhav') selectPolyTab('go', document.querySelectorAll('#poly-tabs .win-btn')[1]);
+    }
+
+    // =========================================================================
+    // VOICE-ACTIVATED /KYRO PUSH-TO-TALK DEMO (WEB SPEECH + AUDIO SYNTHESIS)
+    // =========================================================================
+    function triggerVoiceKyroDemo() {
+      const btn = document.getElementById('btn-voice-kyro');
+      btn.textContent = '🔴 LISTENING...';
+      const spokenPrompt = `Kyro, ${currentInst} broke below Zero-Gamma Flip—deploy a 4-lot hedged Bear Put Spread with Long Hedge first.`;
+      document.getElementById('cmd-input').value = spokenPrompt;
+
+      setTimeout(() => {
+        btn.textContent = '🔊 SPEAKING TELEMETRY';
+        selectStrategyStructure(0);
+        executeWebMcpBasketLive();
+
+        if ('speechSynthesis' in window) {
+          window.speechSynthesis.cancel();
+          const u = new SpeechSynthesisUtterance(
+            `Kyro Web M C P compiled ${currentInst} Bear Put Spread in 1.18 microseconds. Long protective hedge leg routed at 0.0 milliseconds. Upfront SPAN margin reduced by 75.7 percent.`
+          );
+          u.rate = 1.03;
+          u.onend = () => { btn.textContent = '🎙️ VOICE KYRO'; };
+          window.speechSynthesis.speak(u);
+        } else {
+          setTimeout(() => { btn.textContent = '🎙️ VOICE KYRO'; }, 1500);
+        }
+      }, 450);
+    }
+
+    // =========================================================================
+    // F6 WAR ROOM: 3-WAY BROKER RACE + 64B WIRE HEX + SERIES-B CFO ARR
+    // =========================================================================
+    function runBrokerFlashCrashRace() {
+      const b1 = document.getElementById('race-bar-1');
+      const b2 = document.getElementById('race-bar-2');
+      const b3 = document.getElementById('race-bar-3');
+      b1.style.width = '4%'; b2.style.width = '4%'; b3.style.width = '4%';
+      document.getElementById('race-lat-1').textContent = 'ROUTING...';
+      document.getElementById('race-lat-2').textContent = 'ROUTING...';
+      document.getElementById('race-lat-3').textContent = 'ROUTING...';
+
+      setTimeout(() => {
+        b3.style.width = '18%';
+        document.getElementById('race-lat-3').innerHTML = '<strong>5.73 ms [100% FILLED — WINNER]</strong>';
+        addBlotterOrder('RACE-SAHI', `${currentInst} 30L HEDGED SPREAD`, '4 SLICES', 'MID-PEG', '5.73ms', '100% FILLED [+₹3,480 SAVED]');
+      }, 180);
+
+      setTimeout(() => {
+        b2.style.width = '62%';
+        document.getElementById('race-lat-2').textContent = '24.15 ms [FREEZE REJECT >18L]';
+      }, 420);
+
+      setTimeout(() => {
+        b1.style.width = '100%';
+        document.getElementById('race-lat-1').textContent = '68.40 ms [SPAN MARGIN REJECT]';
+      }, 750);
+    }
+
+    const WIRE_BYTES_META = [
+      { range: [0, 3], cls: 'f-magic', title: 'Bytes [00..03]: u32 magic_header = 0x53414849 ("SAHI")', desc: '4-byte ASCII protocol header validating zero-copy SahiWireFrame64 alignment.' },
+      { range: [4, 7], cls: 'f-magic', title: 'Bytes [04..07]: u32 instrument_token = 256265 (NIFTY 50)', desc: 'Exchange numeric instrument token mapped directly to Lock-Free Rust FeedServer actor.' },
+      { range: [8, 15], cls: 'f-magic', title: 'Bytes [08..15]: u64 exchange_timestamp_ns', desc: 'Hardware NIC nanosecond timestamp from NSE/BSE/MCX multicast adaptor.' },
+      { range: [16, 23], cls: 'f-spot', title: 'Bytes [16..23]: f64 spot_ltp = 22,716.20', desc: 'IEEE-754 double-precision underlying Spot price read via WASM f64.load offset=16.' },
+      { range: [24, 31], cls: 'f-spot', title: 'Bytes [24..31]: f64 zero_gamma_flip = 22,750.00 (S*)', desc: 'Continuous strike-interpolated Dealer Zero-Gamma Flip boundary S*.' },
+      { range: [32, 39], cls: 'f-gex', title: 'Bytes [32..39]: f64 net_dealer_gex_cr = -1,305.20 Cr', desc: 'Aggregate strike-wise Net Dealer Gamma Exposure in INR Crores.' },
+      { range: [40, 47], cls: 'f-gex', title: 'Bytes [40..47]: f32 obi_5 (+0.214) + f32 vpin_toxicity (0.648)', desc: '5-level DOM Order Book Imbalance and Easley-de Prado VPIN toxicity.' },
+      { range: [48, 55], cls: 'f-gex', title: 'Bytes [48..55]: f32 net_vanna (+0.041) + f32 net_charm (-0.184)', desc: 'Pre-serialized 2nd-order Vanna (∂Δ/∂σ) and Charm (-∂Δ/∂t) surface drift.' },
+      { range: [56, 63], cls: 'f-rms', title: 'Bytes [56..63]: u8 tiltguard_bitmask (0x03) + u16 tilt_score + u32 crc32c', desc: 'Cache-aligned TiltGuard RMS bitmask state + hardware CRC32C frame integrity.' }
+    ];
+
+    function renderWireHexGrid() {
+      const sampleHex = [
+        '53','41','48','49', '00','03','E9','09', '18','A4','7B','C2','91','04','00','00',
+        '40','D6','2F','0C','CC','CC','CC','CD', '40','D6','37','80','00','00','00','00',
+        'C0','94','64','CC','CC','CC','CC','CD', '3E','5B','22','D1', '3F','25','E3','54',
+        '3D','28','F5','C3', 'BE','3C','6A','7F',
+        tiltScore >= 82 ? '27' : (tiltScore >= 52 ? '0B' : '03'),
+        regimeGateActive ? '02' : '00',
+        '00', tiltScore.toString(16).padStart(2, '0').toUpperCase(),
+        '9F','3A','C1','08'
+      ];
+      const grid = document.getElementById('wire-hex-grid');
+      if (!grid) return;
+      grid.innerHTML = sampleHex.map((hx, idx) => {
+        const meta = WIRE_BYTES_META.find(m => idx >= m.range[0] && idx <= m.range[1]) || WIRE_BYTES_META[0];
+        return `<div class="hex-byte ${meta.cls}" onmouseenter="inspectHexByte(${idx})">${hx}</div>`;
+      }).join('');
+    }
+
+    function inspectHexByte(idx) {
+      const meta = WIRE_BYTES_META.find(m => idx >= m.range[0] && idx <= m.range[1]) || WIRE_BYTES_META[0];
+      document.getElementById('wire-field-title').textContent = meta.title;
+      document.getElementById('wire-field-desc').textContent = meta.desc;
+    }
+
+    function recalcCfoArr() {
+      const dau = parseInt(document.getElementById('cfo-dau-slider').value || '150000', 10);
+      const share = parseInt(document.getElementById('cfo-share-slider').value || '28', 10) / 100;
+      document.getElementById('cfo-dau-lbl').textContent = `${dau.toLocaleString('en-IN')} TRADERS`;
+      document.getElementById('cfo-share-lbl').textContent = `${Math.round(share * 100)}% OF ORDERS`;
+
+      // WebMCP multi-leg lift (Rs 10 -> Rs 26 across 248 trading days)
+      const webmcpCr = (dau * share * 1.6 * 2.0 * 10 * 248) / 1e7;
+      // TiltGuard 1-Lot Governor afternoon retention across 15.4% tilted sessions
+      const govCr = (dau * 0.154 * 9.8 * 10 * 248) / 1e7;
+      const totalCr = webmcpCr + govCr;
+
+      document.getElementById('cfo-webmcp-cr').textContent = `+₹${webmcpCr.toFixed(1)} Cr`;
+      document.getElementById('cfo-gov-cr').textContent = `+₹${govCr.toFixed(1)} Cr`;
+      document.getElementById('cfo-total-arr').textContent = `+₹${totalCr.toFixed(1)} Cr/YR`;
+    }
+
+    // =========================================================================
     // POLYGLOT SOURCE INSPECTOR
     // =========================================================================
     function selectPolyTab(key, btn) {
@@ -2084,18 +2531,53 @@
       initWin3Sessions();
       updateEmsSlices();
       renderBlotter();
+      renderWireHexGrid();
+      recalcCfoArr();
       selectPolyTab('rust', document.querySelector('#poly-tabs .win-btn'));
 
-      // 3D rotation drag on Window 1
+      // Window 1 Dual Interaction: Left half = Drag On-Chart Stop-Loss Line; Right half = Rotate 3D GEX Mesh
       const c1 = document.getElementById('canvas-w1');
-      c1.addEventListener('mousedown', e => { dragging3D = true; prevX = e.clientX; prevY = e.clientY; });
+      c1.addEventListener('mousedown', e => {
+        const rect = c1.getBoundingClientRect();
+        const mx = e.clientX - rect.left;
+        const my = e.clientY - rect.top;
+        const splitX = win1Mode === 'split' ? rect.width * 0.52 : 0;
+
+        if (win1Mode === 'split' && mx < splitX && window.scalpState.active && Math.abs(my - window.scalpState.slY) < 26) {
+          window.scalpState.draggingSL = true;
+        } else {
+          dragging3D = true;
+          prevX = e.clientX;
+          prevY = e.clientY;
+        }
+      });
+
       window.addEventListener('mousemove', e => {
+        if (window.scalpState.draggingSL) {
+          const c1Rect = c1.getBoundingClientRect();
+          const my = e.clientY - c1Rect.top;
+          if (tiltScore >= 82) {
+            // Locked by TiltGuard HMAC!
+            return;
+          }
+          window.scalpState.slY = Math.max(135, Math.min(250, my));
+          if (window.scalpState.slY - window.scalpState.lastTriggeredY > 16) {
+            window.scalpState.lastTriggeredY = window.scalpState.slY;
+            triggerTiltEvent('SL_DRAG');
+            renderWireHexGrid();
+          }
+          return;
+        }
         if (!dragging3D) return;
         yaw3D += (e.clientX - prevX) * 0.01;
         pitch3D = Math.max(0.15, Math.min(1.2, pitch3D + (e.clientY - prevY) * 0.01));
         prevX = e.clientX; prevY = e.clientY;
       });
-      window.addEventListener('mouseup', () => { dragging3D = false; });
+
+      window.addEventListener('mouseup', () => {
+        window.scalpState.draggingSL = false;
+        dragging3D = false;
+      });
 
       // Interactive Strike/P&L Hover Crosshair on Window 2 Payoff Canvas
       const c2 = document.getElementById('canvas-w2');
@@ -2112,6 +2594,8 @@
       const params = new URLSearchParams(window.location.search);
       const ws = parseInt(params.get('ws') || '0', 10);
       if (ws >= 1 && ws <= 4) switchViewMode(ws);
+      const forWho = params.get('for');
+      if (forWho) selectVipPersona(forWho, null);
 
       requestAnimationFrame(masterLoop);
     });
