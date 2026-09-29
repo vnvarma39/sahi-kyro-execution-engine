@@ -1,0 +1,228 @@
+{
+  "manifest_version": "1.0.0",
+  "generated_at_utc": "2026-09-29T16:08:20.765825+00:00",
+  "execution_duration_sec": 11.1,
+  "market_calibrations": {
+    "NIFTY50": {
+      "spot": 22716.2,
+      "prev_close": 24175.65,
+      "realized_vol_pct": 9.94,
+      "atr": 222.9
+    },
+    "BANKNIFTY": {
+      "spot": 54259.95,
+      "prev_close": 57496.3,
+      "realized_vol_pct": 12.68,
+      "atr": 665.93
+    },
+    "SENSEX": {
+      "spot": 72529.07,
+      "prev_close": 77264.51,
+      "realized_vol_pct": 10.48,
+      "atr": 727.93
+    },
+    "CRUDEOIL_USD": {
+      "spot": 90.71,
+      "prev_close": 83.4,
+      "realized_vol_pct": 45.69,
+      "atr": 5.29
+    },
+    "GOLD_USD": {
+      "spot": 4190.1,
+      "prev_close": 4529.9,
+      "realized_vol_pct": 20.72,
+      "atr": 96.85
+    },
+    "RELIANCE": {
+      "spot": 1182.0,
+      "prev_close": 1287.0,
+      "realized_vol_pct": 20.12,
+      "atr": 18.71
+    },
+    "HDFCBANK": {
+      "spot": 722.7,
+      "prev_close": 720.3,
+      "realized_vol_pct": 20.12,
+      "atr": 14.29
+    },
+    "ICICIBANK": {
+      "spot": 1292.2,
+      "prev_close": 1422.8,
+      "realized_vol_pct": 11.67,
+      "atr": 18.17
+    },
+    "USDINR": {
+      "spot": 95.97,
+      "prev_close": 95.47,
+      "realized_vol_pct": 5.81,
+      "atr": 0.63
+    },
+    "CRUDEOIL_MCX": {
+      "spot": 8705.44,
+      "prev_close": 8003.9,
+      "realized_vol_pct": 45.69,
+      "atr": 507.68
+    },
+    "GOLD_MCX": {
+      "spot": 129285.84,
+      "prev_close": 139770.39,
+      "realized_vol_pct": 20.72,
+      "atr": 2988.31
+    }
+  },
+  "datasets": {
+    "sahi_intraday_ticks_50k.csv": {
+      "file_path": "e:\\NIKHIL\\MAHINDRA UNIVERSITY\\internship\\sahi\\data\\sahi_intraday_ticks_50k.csv",
+      "rows": 60000,
+      "columns_count": 20,
+      "columns": [
+        "timestamp",
+        "instrument",
+        "open",
+        "high",
+        "low",
+        "close",
+        "volume",
+        "trades",
+        "obi",
+        "vpin",
+        "net_dealer_gex_cr",
+        "regime",
+        "vwap",
+        "lorentz_f1_rsi",
+        "lorentz_f2_wt",
+        "lorentz_f3_cci",
+        "lorentz_f4_adx",
+        "lorentz_f5_vol_ratio",
+        "lorentz_f6_spread_bps",
+        "lorentz_vector"
+      ],
+      "file_size_bytes": 12216078,
+      "file_size_mb": 11.65,
+      "sha256": "4f623b3b5a35cdb90868890571a66615993800bb42b66a4926b2faa8ec07eaf5",
+      "instruments": [
+        "NIFTY50",
+        "BANKNIFTY",
+        "SENSEX",
+        "CRUDEOIL_MCX",
+        "GOLD_MCX"
+      ],
+      "regimes_distribution": {
+        "PINNED_EXPIRY": 16982,
+        "TRENDING_BEAR": 12625,
+        "TRENDING_BULL": 12581,
+        "HIGH_VOLATILITY": 10539,
+        "RANGE_BOUND": 7273
+      },
+      "vpin_mean": 0.352,
+      "vpin_p95": 0.864,
+      "obi_std": 0.5
+    },
+    "sahi_option_chains_greeks.json": {
+      "file_path": "e:\\NIKHIL\\MAHINDRA UNIVERSITY\\internship\\sahi\\data\\sahi_option_chains_greeks.json",
+      "instruments_count": 5,
+      "total_strikes_count": 200,
+      "total_contracts_modeled": 400,
+      "file_size_bytes": 844345,
+      "file_size_kb": 824.56,
+      "sha256": "85a92a8be2010e3a2efb4499229bead5b5f78eb74a40353093b12518bd8ed339",
+      "instruments_summary": {
+        "NIFTY50": {
+          "spot": 22716.2,
+          "zero_gamma_flip": 22750,
+          "max_pain": 22750,
+          "pcr_oi": 1.005,
+          "total_net_gex_cr": -1305.2
+        },
+        "BANKNIFTY": {
+          "spot": 54259.95,
+          "zero_gamma_flip": 54300,
+          "max_pain": 54600,
+          "pcr_oi": 1.001,
+          "total_net_gex_cr": 930.64
+        },
+        "SENSEX": {
+          "spot": 72529.07,
+          "zero_gamma_flip": 72600,
+          "max_pain": 72600,
+          "pcr_oi": 1.021,
+          "total_net_gex_cr": 120.55
+        },
+        "CRUDEOIL_MCX": {
+          "spot": 8705.44,
+          "zero_gamma_flip": 8750,
+          "max_pain": 8750,
+          "pcr_oi": 1.023,
+          "total_net_gex_cr": 59.86
+        },
+        "GOLD_MCX": {
+          "spot": 129285.84,
+          "zero_gamma_flip": 129400,
+          "max_pain": 129400,
+          "pcr_oi": 1.043,
+          "total_net_gex_cr": -264.36
+        }
+      }
+    },
+    "sahi_live_news_catalysts.json": {
+      "file_path": "e:\\NIKHIL\\MAHINDRA UNIVERSITY\\internship\\sahi\\data\\sahi_live_news_catalysts.json",
+      "total_scraped_items": 133,
+      "file_size_bytes": 714688,
+      "file_size_kb": 697.94,
+      "sha256": "1d174476b612ef22a48db0aa222d7e221d7d053866dea3784921b0c5266f0962",
+      "catalyst_categories": {
+        "M&A and Strategic Capital Allocation": 57,
+        "Macro Liquidity and Institutional Sentiment": 48,
+        "Infrastructure and PSU Order Wins": 11,
+        "Corporate Earnings and Guidance Shock": 8,
+        "Executive Leadership and C-Suite Restructuring": 6,
+        "Regulatory, Policy and Tariffs": 3
+      },
+      "average_implied_straddle_move_pct": 4.58,
+      "average_iv_crush_velocity_pct_per_hour": 23.16
+    },
+    "sahi_trader_behavioral_sessions.csv": {
+      "file_path": "e:\\NIKHIL\\MAHINDRA UNIVERSITY\\internship\\sahi\\data\\sahi_trader_behavioral_sessions.csv",
+      "rows": 3000,
+      "columns_count": 19,
+      "columns": [
+        "session_id",
+        "trader_id",
+        "experience_tier",
+        "capital_allocated_inr",
+        "instrument",
+        "trades_count",
+        "sl_dragback_count",
+        "post_loss_martingale_multiplier",
+        "pnl_protect_tamper_count",
+        "expiry_otm_theta_trap",
+        "gross_pnl_inr",
+        "brokerage_and_stt_inr",
+        "net_pnl_inr",
+        "brokerage_to_loss_burn_ratio",
+        "adverse_holding_time_min",
+        "favorable_holding_time_min",
+        "tilt_score",
+        "sahi_nudge_triggered",
+        "nudge_accepted"
+      ],
+      "file_size_bytes": 435496,
+      "file_size_kb": 425.29,
+      "sha256": "03b2d0b23787e9d915bc09b399b401e6daf60eb12da753e8d3d0613702022b17",
+      "unprofitable_sessions_pct": 76.83,
+      "average_tilt_score": 35.33,
+      "tilted_sessions_gt70_pct": 8.13,
+      "total_brokerage_paid_inr": 5921092.53,
+      "mean_brokerage_burn_ratio": 0.2368,
+      "nudge_distribution": {
+        "NONE": 1472,
+        "SL_DRAG_FRICTION_WARNING": 1092,
+        "0DTE_HERO_OR_ZERO_THETA_DECAY_WARNING": 274,
+        "MANDATORY_COOLOFF_15MIN_LOCKOUT": 113,
+        "MARTINGALE_LOT_SIZE_OVERRIDE_ALERT": 40,
+        "PNL_PROTECT_DAILY_LIMIT_ENFORCEMENT": 9
+      },
+      "nudge_compliance_rate_pct": 74.41
+    }
+  }
+}
