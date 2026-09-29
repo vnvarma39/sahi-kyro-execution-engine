@@ -1,0 +1,53 @@
+{
+  "generated_at": "2026-09-29T22:12:00+05:30",
+  "total_data_size_mb": 203.71,
+  "max_single_file_name": "partitions\\ticks_GOLD_MCX_120k.csv",
+  "max_single_file_size_mb": 22.5,
+  "github_push_safe": true,
+  "total_actionable_rows": 936033,
+  "partitions": {
+    "l2_subsecond_ticks_600k": {
+      "NIFTY50": {
+        "rows": 120000,
+        "csv_mb": 21.18,
+        "parquet_mb": 7.86
+      },
+      "BANKNIFTY": {
+        "rows": 120000,
+        "csv_mb": 22.04,
+        "parquet_mb": 8.45
+      },
+      "SENSEX": {
+        "rows": 120000,
+        "csv_mb": 21.19,
+        "parquet_mb": 8.74
+      },
+      "CRUDEOIL_MCX": {
+        "rows": 120000,
+        "csv_mb": 21.48,
+        "parquet_mb": 7.62
+      },
+      "GOLD_MCX": {
+        "rows": 120000,
+        "csv_mb": 22.5,
+        "parquet_mb": 9.35
+      }
+    },
+    "multi_expiry_options_surface_120k": {
+      "rows": 120000,
+      "csv_mb": 17.19
+    },
+    "retail_behavioral_sessions_50k": {
+      "rows": 50000,
+      "csv_mb": 5.86
+    },
+    "mumbai_3hop_order_audit_trace_100k": {
+      "rows": 100000,
+      "csv_mb": 9.05
+    },
+    "scylladb_news_analog_vectors_2500": {
+      "rows": 2500,
+      "json_mb": 2.75
+    }
+  }
+}
