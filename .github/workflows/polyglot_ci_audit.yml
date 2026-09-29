@@ -1,0 +1,36 @@
+name: Sahi Polyglot Execution & RMS CI Audit
+
+on:
+  push:
+    branches: [ main, "feat/**" ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  quant-and-webmcp-verification:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Sahi Kyro-Execution Repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Set up Node.js 22 (V8 WebMCP Engine)
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Install Python Quantitative Dependencies
+        run: pip install numpy pandas pyarrow pytest
+
+      - name: Run 10 Pytest Quantitative & Hedged-First Invariants
+        run: python -m pytest tests/test_kyro_engine.py -v
+
+      - name: Run 50,000-Iteration Chrome WebMCP V8 Benchmark
+        run: node ts_webmcp_sdk/webmcp_benchmark.mjs
+
+      - name: Run 100,000-Order TiltGuard RMS Stress Benchmark (<200us SLA)
+        run: python benchmarks/stress_test.py
