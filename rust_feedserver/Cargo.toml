@@ -1,0 +1,23 @@
+[package]
+name = "sahi-rust-feedserver"
+version = "0.3.0"
+edition = "2021"
+authors = ["Nikhil Varma Vanapala <vnvarma39@github.com>"]
+description = "Lock-free Rust FeedServer actor, zero-copy Arc<[u8]> GEX/Vanna pre-serializer, and <15us atomic bitmask TiltGuard RMS engine for Sahi.com"
+
+[lib]
+name = "sahi_rust_feedserver"
+crate-type = ["cdylib", "rlib"]
+
+[dependencies]
+wasm-bindgen = "0.2"
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+hmac = "0.12"
+sha2 = "0.10"
+
+[profile.release]
+opt-level = 3
+lto = true
+codegen-units = 1
+panic = "abort"
