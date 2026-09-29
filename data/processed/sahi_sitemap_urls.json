@@ -1,0 +1,1436 @@
+[
+  {
+    "loc": "https://www.sahi.com",
+    "lastmod": "2026-09-29T15:08:56.000Z",
+    "changefreq": "daily",
+    "priority": 1.0
+  },
+  {
+    "loc": "https://www.sahi.com/pricing",
+    "lastmod": "2026-09-29T16:07:00.885Z",
+    "changefreq": "weekly",
+    "priority": 0.9
+  },
+  {
+    "loc": "https://www.sahi.com/compare/pricing",
+    "lastmod": "2026-09-29T16:07:00.885Z",
+    "changefreq": "weekly",
+    "priority": 0.8
+  },
+  {
+    "loc": "https://www.sahi.com/downloads",
+    "lastmod": "2026-09-29T16:07:00.885Z",
+    "changefreq": "weekly",
+    "priority": 0.8
+  },
+  {
+    "loc": "https://www.sahi.com/contact",
+    "lastmod": "2026-09-29T16:07:00.885Z",
+    "changefreq": "monthly",
+    "priority": 0.8
+  },
+  {
+    "loc": "https://www.sahi.com/about",
+    "lastmod": "2026-09-29T16:07:00.885Z",
+    "changefreq": "monthly",
+    "priority": 0.8
+  },
+  {
+    "loc": "https://www.sahi.com/customer-support",
+    "lastmod": "2026-09-29T16:07:00.885Z",
+    "changefreq": "weekly",
+    "priority": 0.8
+  },
+  {
+    "loc": "https://www.sahi.com/advantage/ai",
+    "lastmod": "2026-09-29T16:07:00.885Z",
+    "changefreq": "daily",
+    "priority": 0.8
+  },
+  {
+    "loc": "https://www.sahi.com/partners",
+    "lastmod": "2026-09-29T16:07:00.885Z",
+    "changefreq": "weekly",
+    "priority": 0.7
+  },
+  {
+    "loc": "https://www.sahi.com/advantage/ai/indicators",
+    "lastmod": "2026-09-29T16:07:00.885Z",
+    "changefreq": "weekly",
+    "priority": 0.8
+  },
+  {
+    "loc": "https://www.sahi.com/brokerage-calculator",
+    "lastmod": "2026-09-29T16:07:00.885Z",
+    "changefreq": "weekly",
+    "priority": 0.9
+  },
+  {
+    "loc": "https://www.sahi.com/career",
+    "lastmod": "2026-09-29T16:07:00.885Z",
+    "changefreq": "weekly",
+    "priority": 0.9
+  },
+  {
+    "loc": "https://www.sahi.com/products/options",
+    "lastmod": "2026-09-29T16:07:00.885Z",
+    "changefreq": "weekly",
+    "priority": 0.9
+  },
+  {
+    "loc": "https://www.sahi.com/products/stocks",
+    "lastmod": "2026-09-29T16:07:00.885Z",
+    "changefreq": "weekly",
+    "priority": 0.9
+  },
+  {
+    "loc": "https://www.sahi.com/products/etf",
+    "lastmod": "2026-09-29T16:07:00.885Z",
+    "changefreq": "weekly",
+    "priority": 0.8
+  },
+  {
+    "loc": "https://www.sahi.com/products/ipo",
+    "lastmod": "2026-09-29T16:07:00.885Z",
+    "changefreq": "weekly",
+    "priority": 0.8
+  },
+  {
+    "loc": "https://www.sahi.com/products/options/buying",
+    "lastmod": "2026-09-29T16:07:00.885Z",
+    "changefreq": "weekly",
+    "priority": 0.8
+  },
+  {
+    "loc": "https://www.sahi.com/products/sahiresearch",
+    "lastmod": "2026-09-29T16:07:00.885Z",
+    "changefreq": "weekly",
+    "priority": 0.7
+  },
+  {
+    "loc": "https://www.sahi.com/platform/web",
+    "lastmod": "2026-09-29T16:07:00.885Z",
+    "changefreq": "monthly",
+    "priority": 0.7
+  },
+  {
+    "loc": "https://www.sahi.com/platform/mobile",
+    "lastmod": "2026-09-29T16:07:00.885Z",
+    "changefreq": "monthly",
+    "priority": 0.7
+  },
+  {
+    "loc": "https://www.sahi.com/video-guide",
+    "lastmod": "2026-09-29T16:07:00.885Z",
+    "changefreq": "weekly",
+    "priority": 0.7
+  },
+  {
+    "loc": "https://www.sahi.com/blogs",
+    "lastmod": "2026-09-29T16:07:00.885Z",
+    "changefreq": "daily",
+    "priority": 0.9
+  },
+  {
+    "loc": "https://www.sahi.com/blogs/search",
+    "lastmod": "2026-09-29T16:07:00.885Z",
+    "changefreq": "weekly",
+    "priority": 0.7
+  },
+  {
+    "loc": "https://www.sahi.com/news",
+    "lastmod": "2026-09-29T16:07:00.885Z",
+    "changefreq": "daily",
+    "priority": 0.9
+  },
+  {
+    "loc": "https://www.sahi.com/news/authors",
+    "lastmod": "2026-09-29T16:07:00.885Z",
+    "changefreq": "weekly",
+    "priority": 0.8
+  },
+  {
+    "loc": "https://www.sahi.com/app-download",
+    "lastmod": "2026-09-29T16:07:00.885Z",
+    "changefreq": "weekly",
+    "priority": 0.8
+  },
+  {
+    "loc": "https://www.sahi.com/order-execution-speed",
+    "lastmod": "2026-09-29T16:07:00.885Z",
+    "changefreq": "weekly",
+    "priority": 0.8
+  },
+  {
+    "loc": "https://www.sahi.com/weekly-ama",
+    "lastmod": "2026-09-29T16:07:00.885Z",
+    "changefreq": "weekly",
+    "priority": 0.7
+  },
+  {
+    "loc": "https://www.sahi.com/press",
+    "lastmod": "2026-09-29T16:07:00.885Z",
+    "changefreq": "weekly",
+    "priority": 0.7
+  },
+  {
+    "loc": "https://www.sahi.com/courses",
+    "lastmod": "2026-09-29T16:07:00.885Z",
+    "changefreq": "weekly",
+    "priority": 0.8
+  },
+  {
+    "loc": "https://www.sahi.com/glossary",
+    "lastmod": "2026-09-29T16:07:00.885Z",
+    "changefreq": "weekly",
+    "priority": 0.8
+  },
+  {
+    "loc": "https://www.sahi.com/advantage/charts",
+    "lastmod": "2026-09-29T16:07:00.885Z",
+    "changefreq": "weekly",
+    "priority": 0.8
+  },
+  {
+    "loc": "https://www.sahi.com/products/options/selling",
+    "lastmod": "2026-09-29T16:07:00.885Z",
+    "changefreq": "weekly",
+    "priority": 0.8
+  },
+  {
+    "loc": "https://www.sahi.com/advantage/sahi-scalper",
+    "lastmod": "2026-09-29T16:07:00.885Z",
+    "changefreq": "weekly",
+    "priority": 0.8
+  },
+  {
+    "loc": "https://www.sahi.com/research-disclaimer",
+    "lastmod": "2025-09-30T04:21:18.186Z",
+    "changefreq": "monthly",
+    "priority": 0.6
+  },
+  {
+    "loc": "https://www.sahi.com/bank-account-disclosure",
+    "lastmod": "2026-01-06T09:03:00.792Z",
+    "changefreq": "monthly",
+    "priority": 0.6
+  },
+  {
+    "loc": "https://www.sahi.com/account-closing",
+    "lastmod": "2026-02-15T13:12:28.589Z",
+    "changefreq": "monthly",
+    "priority": 0.6
+  },
+  {
+    "loc": "https://www.sahi.com/privacy",
+    "lastmod": "2026-02-15T14:17:14.566Z",
+    "changefreq": "monthly",
+    "priority": 0.6
+  },
+  {
+    "loc": "https://www.sahi.com/voluntary-freeze",
+    "lastmod": "2026-02-16T13:58:14.851Z",
+    "changefreq": "monthly",
+    "priority": 0.6
+  },
+  {
+    "loc": "https://www.sahi.com/gtt-gtc",
+    "lastmod": "2026-03-26T12:29:39.977Z",
+    "changefreq": "monthly",
+    "priority": 0.6
+  },
+  {
+    "loc": "https://www.sahi.com/ra-mitc",
+    "lastmod": "2026-04-23T08:06:01.752Z",
+    "changefreq": "monthly",
+    "priority": 0.6
+  },
+  {
+    "loc": "https://www.sahi.com/account-opening",
+    "lastmod": "2026-05-01T16:39:15.784Z",
+    "changefreq": "monthly",
+    "priority": 0.6
+  },
+  {
+    "loc": "https://www.sahi.com/filing-a-complaint",
+    "lastmod": "2026-05-01T16:40:34.802Z",
+    "changefreq": "monthly",
+    "priority": 0.6
+  },
+  {
+    "loc": "https://www.sahi.com/regulatory-info",
+    "lastmod": "2026-05-01T16:58:18.355Z",
+    "changefreq": "monthly",
+    "priority": 0.6
+  },
+  {
+    "loc": "https://www.sahi.com/terms-and-conditions",
+    "lastmod": "2026-06-12T09:43:05.629Z",
+    "changefreq": "monthly",
+    "priority": 0.6
+  },
+  {
+    "loc": "https://www.sahi.com/referral-terms",
+    "lastmod": "2026-07-09T13:39:21.250Z",
+    "changefreq": "monthly",
+    "priority": 0.6
+  },
+  {
+    "loc": "https://www.sahi.com/general",
+    "lastmod": "2026-08-07T11:22:15.593Z",
+    "changefreq": "monthly",
+    "priority": 0.6
+  },
+  {
+    "loc": "https://www.sahi.com/declaration-for-opting-out-of-nomination",
+    "lastmod": "2026-08-27T12:49:01.299Z",
+    "changefreq": "monthly",
+    "priority": 0.6
+  },
+  {
+    "loc": "https://www.sahi.com/investor-charters-and-grievance",
+    "lastmod": "2026-09-15T07:55:52.053Z",
+    "changefreq": "monthly",
+    "priority": 0.6
+  },
+  {
+    "loc": "https://www.sahi.com/riskpolicy",
+    "lastmod": "2026-09-24T10:44:49.424Z",
+    "changefreq": "monthly",
+    "priority": 0.6
+  },
+  {
+    "loc": "https://www.sahi.com/blogs/category/ipo",
+    "lastmod": "2025-12-08T15:33:12.590Z",
+    "changefreq": "weekly",
+    "priority": 0.7
+  },
+  {
+    "loc": "https://www.sahi.com/blogs/category/product-updates",
+    "lastmod": "2025-12-08T15:33:25.660Z",
+    "changefreq": "weekly",
+    "priority": 0.7
+  },
+  {
+    "loc": "https://www.sahi.com/blogs/category/market-updates",
+    "lastmod": "2025-12-10T04:35:22.406Z",
+    "changefreq": "weekly",
+    "priority": 0.7
+  },
+  {
+    "loc": "https://www.sahi.com/blogs/category/options-101",
+    "lastmod": "2025-12-12T14:03:41.111Z",
+    "changefreq": "weekly",
+    "priority": 0.7
+  },
+  {
+    "loc": "https://www.sahi.com/blogs/category/stocks-101",
+    "lastmod": "2025-12-18T08:28:33.792Z",
+    "changefreq": "weekly",
+    "priority": 0.7
+  },
+  {
+    "loc": "https://www.sahi.com/blogs/category/trading-101",
+    "lastmod": "2025-12-19T12:14:56.641Z",
+    "changefreq": "weekly",
+    "priority": 0.7
+  },
+  {
+    "loc": "https://www.sahi.com/blogs/category/personal-finance",
+    "lastmod": "2026-07-14T08:46:56.396Z",
+    "changefreq": "weekly",
+    "priority": 0.7
+  },
+  {
+    "loc": "https://www.sahi.com/blogs/category/commodities",
+    "lastmod": "2026-07-21T06:12:29.892Z",
+    "changefreq": "weekly",
+    "priority": 0.7
+  },
+  {
+    "loc": "https://www.sahi.com/video-guide/category/en/options-scalping",
+    "lastmod": "2026-07-09T12:46:32.155Z",
+    "changefreq": "weekly",
+    "priority": 0.7
+  },
+  {
+    "loc": "https://www.sahi.com/video-guide/category/en/options-selling",
+    "lastmod": "2026-07-09T12:46:32.231Z",
+    "changefreq": "weekly",
+    "priority": 0.7
+  },
+  {
+    "loc": "https://www.sahi.com/video-guide/category/en/research",
+    "lastmod": "2026-07-09T12:46:32.309Z",
+    "changefreq": "weekly",
+    "priority": 0.7
+  },
+  {
+    "loc": "https://www.sahi.com/video-guide/category/en/account-management",
+    "lastmod": "2026-07-09T12:46:32.384Z",
+    "changefreq": "weekly",
+    "priority": 0.7
+  },
+  {
+    "loc": "https://www.sahi.com/video-guide/category/en/stock-trading",
+    "lastmod": "2026-07-09T12:46:32.458Z",
+    "changefreq": "weekly",
+    "priority": 0.7
+  },
+  {
+    "loc": "https://www.sahi.com/faq/about-sahi",
+    "lastmod": "2025-06-17T14:41:35.731Z",
+    "changefreq": "weekly",
+    "priority": 0.7
+  },
+  {
+    "loc": "https://www.sahi.com/faq/account-opening",
+    "lastmod": "2025-06-17T14:57:39.079Z",
+    "changefreq": "weekly",
+    "priority": 0.7
+  },
+  {
+    "loc": "https://www.sahi.com/faq/account-closure",
+    "lastmod": "2025-06-17T15:23:40.265Z",
+    "changefreq": "weekly",
+    "priority": 0.7
+  },
+  {
+    "loc": "https://www.sahi.com/faq/adding-transfer-money",
+    "lastmod": "2026-04-26T15:44:25.270Z",
+    "changefreq": "weekly",
+    "priority": 0.7
+  },
+  {
+    "loc": "https://www.sahi.com/faq/payout",
+    "lastmod": "2025-06-17T17:23:35.227Z",
+    "changefreq": "weekly",
+    "priority": 0.7
+  },
+  {
+    "loc": "https://www.sahi.com/faq/customer-service",
+    "lastmod": "2025-06-17T16:01:44.123Z",
+    "changefreq": "weekly",
+    "priority": 0.7
+  },
+  {
+    "loc": "https://www.sahi.com/faq/primary-market",
+    "lastmod": "2025-06-17T16:31:47.634Z",
+    "changefreq": "weekly",
+    "priority": 0.7
+  },
+  {
+    "loc": "https://www.sahi.com/faq/options-scalper",
+    "lastmod": "2026-04-30T12:13:25.937Z",
+    "changefreq": "weekly",
+    "priority": 0.7
+  },
+  {
+    "loc": "https://www.sahi.com/faq/placing-orders-on-exchanges",
+    "lastmod": "2026-04-30T12:17:47.634Z",
+    "changefreq": "weekly",
+    "priority": 0.7
+  },
+  {
+    "loc": "https://www.sahi.com/faq/pledge",
+    "lastmod": "2026-01-07T16:40:57.856Z",
+    "changefreq": "weekly",
+    "priority": 0.7
+  },
+  {
+    "loc": "https://www.sahi.com/faq/nominee",
+    "lastmod": "2025-06-17T17:46:31.267Z",
+    "changefreq": "weekly",
+    "priority": 0.7
+  },
+  {
+    "loc": "https://www.sahi.com/faq/pricing-and-brokerage",
+    "lastmod": "2026-05-01T06:06:41.612Z",
+    "changefreq": "weekly",
+    "priority": 0.7
+  },
+  {
+    "loc": "https://www.sahi.com/faq/login-and-account-related",
+    "lastmod": "2026-04-13T12:43:25.865Z",
+    "changefreq": "weekly",
+    "priority": 0.7
+  },
+  {
+    "loc": "https://www.sahi.com/faq/margin-and-leverage",
+    "lastmod": "2026-04-29T20:52:47.406Z",
+    "changefreq": "weekly",
+    "priority": 0.7
+  },
+  {
+    "loc": "https://www.sahi.com/faq/statements",
+    "lastmod": "2025-06-17T18:02:43.461Z",
+    "changefreq": "weekly",
+    "priority": 0.7
+  },
+  {
+    "loc": "https://www.sahi.com/faq/market-price-protection",
+    "lastmod": "2025-06-17T18:03:59.242Z",
+    "changefreq": "weekly",
+    "priority": 0.7
+  },
+  {
+    "loc": "https://www.sahi.com/faq/ipo-general",
+    "lastmod": "2025-10-01T06:40:41.696Z",
+    "changefreq": "weekly",
+    "priority": 0.7
+  },
+  {
+    "loc": "https://www.sahi.com/faq/instant-withdrawal",
+    "lastmod": "2026-08-31T12:07:08.110Z",
+    "changefreq": "weekly",
+    "priority": 0.7
+  },
+  {
+    "loc": "https://www.sahi.com/faq/ipo-application-process",
+    "lastmod": "2025-10-01T06:49:14.459Z",
+    "changefreq": "weekly",
+    "priority": 0.7
+  },
+  {
+    "loc": "https://www.sahi.com/faq/ipo-hni-category-applications",
+    "lastmod": "2025-10-01T06:51:16.446Z",
+    "changefreq": "weekly",
+    "priority": 0.7
+  },
+  {
+    "loc": "https://www.sahi.com/faq/ipo-modifications-and-cancellations",
+    "lastmod": "2025-10-01T06:52:23.668Z",
+    "changefreq": "weekly",
+    "priority": 0.7
+  },
+  {
+    "loc": "https://www.sahi.com/faq/ipo-upi-mandates",
+    "lastmod": "2025-10-01T06:54:40.388Z",
+    "changefreq": "weekly",
+    "priority": 0.7
+  },
+  {
+    "loc": "https://www.sahi.com/faq/ipo-allotment",
+    "lastmod": "2025-10-01T06:57:05.184Z",
+    "changefreq": "weekly",
+    "priority": 0.7
+  },
+  {
+    "loc": "https://www.sahi.com/faq/ipo-fund-management",
+    "lastmod": "2025-10-01T06:58:17.362Z",
+    "changefreq": "weekly",
+    "priority": 0.7
+  },
+  {
+    "loc": "https://www.sahi.com/faq/commodity-basics",
+    "lastmod": "2026-08-24T09:58:36.875Z",
+    "changefreq": "weekly",
+    "priority": 0.7
+  },
+  {
+    "loc": "https://www.sahi.com/faq/account-opening-and-commodity-segment-activation",
+    "lastmod": "2026-08-24T10:05:56.666Z",
+    "changefreq": "weekly",
+    "priority": 0.7
+  },
+  {
+    "loc": "https://www.sahi.com/faq/contracts-lot-sizes-and-instruments",
+    "lastmod": "2026-08-24T20:17:10.251Z",
+    "changefreq": "weekly",
+    "priority": 0.7
+  },
+  {
+    "loc": "https://www.sahi.com/faq/trading-hours-and-order-types",
+    "lastmod": "2026-08-24T20:17:29.544Z",
+    "changefreq": "weekly",
+    "priority": 0.7
+  },
+  {
+    "loc": "https://www.sahi.com/faq/margins",
+    "lastmod": "2026-08-24T20:17:41.846Z",
+    "changefreq": "weekly",
+    "priority": 0.7
+  },
+  {
+    "loc": "https://www.sahi.com/faq/brokerage-charges-and-taxes",
+    "lastmod": "2026-08-24T20:18:07.521Z",
+    "changefreq": "weekly",
+    "priority": 0.7
+  },
+  {
+    "loc": "https://www.sahi.com/faq/expiry-settlement-and-physical-delivery",
+    "lastmod": "2026-08-24T20:18:35.831Z",
+    "changefreq": "weekly",
+    "priority": 0.7
+  },
+  {
+    "loc": "https://www.sahi.com/faq/research",
+    "lastmod": "2026-07-29T17:50:59.745Z",
+    "changefreq": "weekly",
+    "priority": 0.7
+  },
+  {
+    "loc": "https://www.sahi.com/faq/quick-actions",
+    "lastmod": "2026-05-16T19:04:42.812Z",
+    "changefreq": "weekly",
+    "priority": 0.7
+  },
+  {
+    "loc": "https://www.sahi.com/faq/p-and-l-protect",
+    "lastmod": "2026-06-05T11:15:01.725Z",
+    "changefreq": "weekly",
+    "priority": 0.7
+  },
+  {
+    "loc": "https://www.sahi.com/faq/ai-indicators",
+    "lastmod": "2026-07-06T08:12:48.960Z",
+    "changefreq": "weekly",
+    "priority": 0.7
+  },
+  {
+    "loc": "https://www.sahi.com/faq/risk-and-controls",
+    "lastmod": "2026-08-24T20:18:56.541Z",
+    "changefreq": "weekly",
+    "priority": 0.7
+  },
+  {
+    "loc": "https://www.sahi.com/faq/reports-pandl-and-statements",
+    "lastmod": "2026-08-24T20:19:31.183Z",
+    "changefreq": "weekly",
+    "priority": 0.7
+  },
+  {
+    "loc": "https://www.sahi.com/faq/custom-time-interval",
+    "lastmod": "2026-09-11T11:13:32.958Z",
+    "changefreq": "weekly",
+    "priority": 0.7
+  },
+  {
+    "loc": "https://www.sahi.com/faq/watchlist-views",
+    "lastmod": "2026-09-11T11:51:15.091Z",
+    "changefreq": "weekly",
+    "priority": 0.7
+  },
+  {
+    "loc": "https://www.sahi.com/news/category/breaking-news",
+    "lastmod": "2026-03-03T14:55:18.503Z",
+    "changefreq": "weekly",
+    "priority": 0.7
+  },
+  {
+    "loc": "https://www.sahi.com/news/category/market-updates",
+    "lastmod": "2026-03-03T14:55:38.372Z",
+    "changefreq": "weekly",
+    "priority": 0.7
+  },
+  {
+    "loc": "https://www.sahi.com/news/author/sahi-markets",
+    "lastmod": "2026-04-15T13:00:02.253Z",
+    "changefreq": "weekly",
+    "priority": 0.7
+  },
+  {
+    "loc": "https://www.sahi.com/news/author/arpit-seth",
+    "lastmod": "2026-04-15T13:04:02.785Z",
+    "changefreq": "weekly",
+    "priority": 0.7
+  },
+  {
+    "loc": "https://www.sahi.com/news/author/revati-krishna",
+    "lastmod": "2026-04-28T13:25:24.858Z",
+    "changefreq": "weekly",
+    "priority": 0.7
+  },
+  {
+    "loc": "https://www.sahi.com/blogs/author/sahi-markets",
+    "lastmod": "2026-04-15T13:00:02.253Z",
+    "changefreq": "weekly",
+    "priority": 0.7
+  },
+  {
+    "loc": "https://www.sahi.com/blogs/author/arpit-seth",
+    "lastmod": "2026-04-15T13:04:02.785Z",
+    "changefreq": "weekly",
+    "priority": 0.7
+  },
+  {
+    "loc": "https://www.sahi.com/blogs/author/revati-krishna",
+    "lastmod": "2026-04-28T13:25:24.858Z",
+    "changefreq": "weekly",
+    "priority": 0.7
+  },
+  {
+    "loc": "https://www.sahi.com/courses/setup-terminal-for-trading",
+    "lastmod": "2026-07-13T15:40:35.405Z",
+    "changefreq": "weekly",
+    "priority": 0.6
+  },
+  {
+    "loc": "https://www.sahi.com/courses/scalping-in-trading",
+    "lastmod": "2026-07-25T05:34:26.643Z",
+    "changefreq": "weekly",
+    "priority": 0.6
+  },
+  {
+    "loc": "https://www.sahi.com/courses/commodity-trading",
+    "lastmod": "2026-09-28T10:57:00.646Z",
+    "changefreq": "weekly",
+    "priority": 0.6
+  },
+  {
+    "loc": "https://www.sahi.com/courses/scalping-in-trading/what-is-scalping-in-trading",
+    "lastmod": "2026-07-23T10:49:37.730Z",
+    "changefreq": "weekly",
+    "priority": 0.6
+  },
+  {
+    "loc": "https://www.sahi.com/courses/scalping-in-trading/scalping-risk-and-money-management",
+    "lastmod": "2026-07-23T10:51:41.657Z",
+    "changefreq": "weekly",
+    "priority": 0.6
+  },
+  {
+    "loc": "https://www.sahi.com/courses/scalping-in-trading/ideal-time-candle-patterns-chart-structures-to-scalp-options",
+    "lastmod": "2026-07-23T10:52:26.339Z",
+    "changefreq": "weekly",
+    "priority": 0.6
+  },
+  {
+    "loc": "https://www.sahi.com/courses/scalping-in-trading/using-option-greeks-for-scalping",
+    "lastmod": "2026-07-23T10:53:05.771Z",
+    "changefreq": "weekly",
+    "priority": 0.6
+  },
+  {
+    "loc": "https://www.sahi.com/courses/scalping-in-trading/using-oi-support-resistance-and-volatility-to-read-market-context",
+    "lastmod": "2026-07-23T10:53:47.533Z",
+    "changefreq": "weekly",
+    "priority": 0.6
+  },
+  {
+    "loc": "https://www.sahi.com/courses/scalping-in-trading/using-indicators-for-scalping-execution",
+    "lastmod": "2026-07-23T10:54:26.473Z",
+    "changefreq": "weekly",
+    "priority": 0.6
+  },
+  {
+    "loc": "https://www.sahi.com/courses/scalping-in-trading/common-scalping-mistakes-and-trade-failure-scenarios",
+    "lastmod": "2026-07-23T10:55:02.380Z",
+    "changefreq": "weekly",
+    "priority": 0.6
+  },
+  {
+    "loc": "https://www.sahi.com/courses/scalping-in-trading/building-and-executing-a-scalping-trade-on-sahi",
+    "lastmod": "2026-07-23T10:56:41.234Z",
+    "changefreq": "weekly",
+    "priority": 0.6
+  },
+  {
+    "loc": "https://www.sahi.com/courses/scalping-in-trading/scalping-mindset-and-discipline",
+    "lastmod": "2026-07-24T04:42:32.446Z",
+    "changefreq": "weekly",
+    "priority": 0.6
+  },
+  {
+    "loc": "https://www.sahi.com/courses/scalping-in-trading/reading-the-option-chain-for-scalping",
+    "lastmod": "2026-07-24T04:54:51.693Z",
+    "changefreq": "weekly",
+    "priority": 0.6
+  },
+  {
+    "loc": "https://www.sahi.com/courses/commodity-trading/what-are-commodities-meaning-types-and-how-they-are-traded",
+    "lastmod": "2026-09-29T06:52:54.595Z",
+    "changefreq": "weekly",
+    "priority": 0.6
+  },
+  {
+    "loc": "https://www.sahi.com/courses/commodity-trading/from-global-price-to-indian-price-how-usd-inr-shapes-mcx-commodity-prices",
+    "lastmod": "2026-09-29T07:02:21.081Z",
+    "changefreq": "weekly",
+    "priority": 0.6
+  },
+  {
+    "loc": "https://www.sahi.com/courses/commodity-trading/how-do-you-analyse-a-commodity-trade-from-market-view-to-trade-plan",
+    "lastmod": "2026-09-29T07:02:29.427Z",
+    "changefreq": "weekly",
+    "priority": 0.6
+  },
+  {
+    "loc": "https://www.sahi.com/courses/commodity-trading/risk-and-behaviour-before-you-trade-commodities-position-sizing-stops-discipline",
+    "lastmod": "2026-09-29T07:02:35.454Z",
+    "changefreq": "weekly",
+    "priority": 0.6
+  },
+  {
+    "loc": "https://www.sahi.com/courses/commodity-trading/how-commodity-markets-evolved-in-india-and-why-they-exist",
+    "lastmod": "2026-09-29T07:02:41.327Z",
+    "changefreq": "weekly",
+    "priority": 0.6
+  },
+  {
+    "loc": "https://www.sahi.com/courses/commodity-trading/the-commodity-universe-agri-vs-non-agri-commodities-explained",
+    "lastmod": "2026-09-29T07:02:49.319Z",
+    "changefreq": "weekly",
+    "priority": 0.6
+  },
+  {
+    "loc": "https://www.sahi.com/courses/commodity-trading/commodities-vs-stocks-what-changes-when-you-trade-commodities",
+    "lastmod": "2026-09-29T07:03:02.221Z",
+    "changefreq": "weekly",
+    "priority": 0.6
+  },
+  {
+    "loc": "https://www.sahi.com/courses/commodity-trading/why-trade-commodities-opportunities-hedging-and-diversification",
+    "lastmod": "2026-09-29T07:03:11.611Z",
+    "changefreq": "weekly",
+    "priority": 0.6
+  },
+  {
+    "loc": "https://www.sahi.com/courses/commodity-trading/how-commodity-trading-works-in-india-exchanges-brokers-and-timings",
+    "lastmod": "2026-09-29T07:03:16.701Z",
+    "changefreq": "weekly",
+    "priority": 0.6
+  },
+  {
+    "loc": "https://www.sahi.com/courses/commodity-trading/understanding-commodity-futures-and-options-lots-expiry-and-strikes",
+    "lastmod": "2026-09-29T07:03:21.846Z",
+    "changefreq": "weekly",
+    "priority": 0.6
+  },
+  {
+    "loc": "https://www.sahi.com/courses/commodity-trading/how-much-capital-do-you-need-to-trade-commodities-margin-lot-size-premium",
+    "lastmod": "2026-09-29T07:03:28.797Z",
+    "changefreq": "weekly",
+    "priority": 0.6
+  },
+  {
+    "loc": "https://www.sahi.com/courses/commodity-trading/what-moves-commodity-prices-supply-demand-inventories-and-key-drivers",
+    "lastmod": "2026-09-29T07:03:35.760Z",
+    "changefreq": "weekly",
+    "priority": 0.6
+  },
+  {
+    "loc": "https://www.sahi.com/glossary/aadhaar-biometric",
+    "lastmod": "2026-05-11T14:46:33.948Z",
+    "changefreq": "monthly",
+    "priority": 0.6
+  },
+  {
+    "loc": "https://www.sahi.com/glossary/aadhaar-card-center-in-bangalore",
+    "lastmod": "2026-05-11T14:46:34.059Z",
+    "changefreq": "monthly",
+    "priority": 0.6
+  },
+  {
+    "loc": "https://www.sahi.com/glossary/aadhaar-card-customer-care-number",
+    "lastmod": "2026-05-11T14:46:34.272Z",
+    "changefreq": "monthly",
+    "priority": 0.6
+  },
+  {
+    "loc": "https://www.sahi.com/glossary/aadhaar-card-for-children",
+    "lastmod": "2026-05-11T14:46:34.401Z",
+    "changefreq": "monthly",
+    "priority": 0.6
+  },
+  {
+    "loc": "https://www.sahi.com/glossary/aadhaar-centers-in-key-areas-of-mumbai",
+    "lastmod": "2026-05-11T14:46:34.502Z",
+    "changefreq": "monthly",
+    "priority": 0.6
+  },
+  {
+    "loc": "https://www.sahi.com/glossary/aadhar-card-centers-in-hyderabad",
+    "lastmod": "2026-05-11T14:46:34.605Z",
+    "changefreq": "monthly",
+    "priority": 0.6
+  },
+  {
+    "loc": "https://www.sahi.com/glossary/aadhar-card-download",
+    "lastmod": "2026-05-11T14:46:34.714Z",
+    "changefreq": "monthly",
+    "priority": 0.6
+  },
+  {
+    "loc": "https://www.sahi.com/glossary/adjusted-closing-price",
+    "lastmod": "2026-05-11T14:46:34.814Z",
+    "changefreq": "monthly",
+    "priority": 0.6
+  },
+  {
+    "loc": "https://www.sahi.com/glossary/advance-tax",
+    "lastmod": "2026-05-11T14:46:34.911Z",
+    "changefreq": "monthly",
+    "priority": 0.6
+  },
+  {
+    "loc": "https://www.sahi.com/glossary/aeps",
+    "lastmod": "2026-05-11T14:46:35.010Z",
+    "changefreq": "monthly",
+    "priority": 0.6
+  },
+  {
+    "loc": "https://www.sahi.com/glossary/agm-annual-general-meeting",
+    "lastmod": "2026-05-11T14:46:35.114Z",
+    "changefreq": "monthly",
+    "priority": 0.6
+  },
+  {
+    "loc": "https://www.sahi.com/glossary/agricultural-income",
+    "lastmod": "2026-05-11T14:46:35.218Z",
+    "changefreq": "monthly",
+    "priority": 0.6
+  },
+  {
+    "loc": "https://www.sahi.com/glossary/alpha",
+    "lastmod": "2026-05-11T14:46:35.318Z",
+    "changefreq": "monthly",
+    "priority": 0.6
+  },
+  {
+    "loc": "https://www.sahi.com/glossary/alternative-minimum-tax-amt",
+    "lastmod": "2026-05-11T14:46:35.412Z",
+    "changefreq": "monthly",
+    "priority": 0.6
+  },
+  {
+    "loc": "https://www.sahi.com/glossary/amfi-association-of-mutual-funds",
+    "lastmod": "2026-05-11T14:46:35.513Z",
+    "changefreq": "monthly",
+    "priority": 0.6
+  },
+  {
+    "loc": "https://www.sahi.com/glossary/annual-general-meeting-agm",
+    "lastmod": "2026-05-11T14:46:35.604Z",
+    "changefreq": "monthly",
+    "priority": 0.6
+  },
+  {
+    "loc": "https://www.sahi.com/glossary/annual-report",
+    "lastmod": "2026-05-11T14:46:35.695Z",
+    "changefreq": "monthly",
+    "priority": 0.6
+  },
+  {
+    "loc": "https://www.sahi.com/glossary/annual-reports",
+    "lastmod": "2026-05-11T14:46:35.783Z",
+    "changefreq": "monthly",
+    "priority": 0.6
+  },
+  {
+    "loc": "https://www.sahi.com/glossary/ao-codes-for-pan",
+    "lastmod": "2026-05-11T14:46:35.877Z",
+    "changefreq": "monthly",
+    "priority": 0.6
+  },
+  {
+    "loc": "https://www.sahi.com/glossary/arbitrage",
+    "lastmod": "2026-05-11T14:46:35.975Z",
+    "changefreq": "monthly",
+    "priority": 0.6
+  },
+  {
+    "loc": "https://www.sahi.com/glossary/ask-price",
+    "lastmod": "2026-05-11T14:46:36.081Z",
+    "changefreq": "monthly",
+    "priority": 0.6
+  },
+  {
+    "loc": "https://www.sahi.com/glossary/asset-allocation-funds",
+    "lastmod": "2026-05-11T14:46:36.184Z",
+    "changefreq": "monthly",
+    "priority": 0.6
+  },
+  {
+    "loc": "https://www.sahi.com/glossary/asset-under-management-aum",
+    "lastmod": "2026-05-11T14:46:36.283Z",
+    "changefreq": "monthly",
+    "priority": 0.6
+  },
+  {
+    "loc": "https://www.sahi.com/glossary/asset-under-management-aum-2",
+    "lastmod": "2026-05-11T14:46:36.539Z",
+    "changefreq": "monthly",
+    "priority": 0.6
+  },
+  {
+    "loc": "https://www.sahi.com/glossary/assets",
+    "lastmod": "2026-05-11T14:46:36.682Z",
+    "changefreq": "monthly",
+    "priority": 0.6
+  },
+  {
+    "loc": "https://www.sahi.com/glossary/average-credit-quality",
+    "lastmod": "2026-05-11T14:46:36.777Z",
+    "changefreq": "monthly",
+    "priority": 0.6
+  },
+  {
+    "loc": "https://www.sahi.com/glossary/balance-sheets",
+    "lastmod": "2026-05-11T14:46:36.870Z",
+    "changefreq": "monthly",
+    "priority": 0.6
+  },
+  {
+    "loc": "https://www.sahi.com/glossary/banks-offering-ppf-accounts",
+    "lastmod": "2026-05-11T14:46:37.072Z",
+    "changefreq": "monthly",
+    "priority": 0.6
+  },
+  {
+    "loc": "https://www.sahi.com/glossary/bear-market",
+    "lastmod": "2026-05-11T14:46:37.166Z",
+    "changefreq": "monthly",
+    "priority": 0.6
+  },
+  {
+    "loc": "https://www.sahi.com/glossary/bearish",
+    "lastmod": "2026-05-11T14:46:37.251Z",
+    "changefreq": "monthly",
+    "priority": 0.6
+  },
+  {
+    "loc": "https://www.sahi.com/glossary/bearish-engulfing-candlestick",
+    "lastmod": "2026-05-11T14:46:37.345Z",
+    "changefreq": "monthly",
+    "priority": 0.6
+  },
+  {
+    "loc": "https://www.sahi.com/glossary/beginners-guide-to-mutual-funds-in-india",
+    "lastmod": "2026-05-11T14:46:37.451Z",
+    "changefreq": "monthly",
+    "priority": 0.6
+  },
+  {
+    "loc": "https://www.sahi.com/glossary/benchmark",
+    "lastmod": "2026-05-11T14:46:37.548Z",
+    "changefreq": "monthly",
+    "priority": 0.6
+  },
+  {
+    "loc": "https://www.sahi.com/glossary/beta",
+    "lastmod": "2026-05-11T14:46:37.640Z",
+    "changefreq": "monthly",
+    "priority": 0.6
+  },
+  {
+    "loc": "https://www.sahi.com/glossary/beta-stocks",
+    "lastmod": "2026-05-11T14:46:37.786Z",
+    "changefreq": "monthly",
+    "priority": 0.6
+  },
+  {
+    "loc": "https://www.sahi.com/glossary/beti-bachao-beti-padhao",
+    "lastmod": "2026-05-11T14:46:37.919Z",
+    "changefreq": "monthly",
+    "priority": 0.6
+  },
+  {
+    "loc": "https://www.sahi.com/glossary/binary-options-trading",
+    "lastmod": "2026-05-11T14:46:38.021Z",
+    "changefreq": "monthly",
+    "priority": 0.6
+  },
+  {
+    "loc": "https://www.sahi.com/glossary/blue-chip",
+    "lastmod": "2026-05-11T14:46:38.119Z",
+    "changefreq": "monthly",
+    "priority": 0.6
+  },
+  {
+    "loc": "https://www.sahi.com/glossary/blue-chip-stocks",
+    "lastmod": "2026-05-11T14:46:38.210Z",
+    "changefreq": "monthly",
+    "priority": 0.6
+  },
+  {
+    "loc": "https://www.sahi.com/glossary/bond-market",
+    "lastmod": "2026-05-11T14:46:38.304Z",
+    "changefreq": "monthly",
+    "priority": 0.6
+  },
+  {
+    "loc": "https://www.sahi.com/glossary/bonds",
+    "lastmod": "2026-05-11T14:46:38.399Z",
+    "changefreq": "monthly",
+    "priority": 0.6
+  },
+  {
+    "loc": "https://www.sahi.com/glossary/bonds-2",
+    "lastmod": "2026-05-11T14:46:38.496Z",
+    "changefreq": "monthly",
+    "priority": 0.6
+  },
+  {
+    "loc": "https://www.sahi.com/glossary/bonus-issue",
+    "lastmod": "2026-05-11T14:46:38.594Z",
+    "changefreq": "monthly",
+    "priority": 0.6
+  },
+  {
+    "loc": "https://www.sahi.com/glossary/book-value",
+    "lastmod": "2026-05-11T14:46:38.690Z",
+    "changefreq": "monthly",
+    "priority": 0.6
+  },
+  {
+    "loc": "https://www.sahi.com/glossary/bottom-up-investing",
+    "lastmod": "2026-05-11T14:46:38.781Z",
+    "changefreq": "monthly",
+    "priority": 0.6
+  },
+  {
+    "loc": "https://www.sahi.com/glossary/bracket-orders",
+    "lastmod": "2026-05-11T14:46:38.879Z",
+    "changefreq": "monthly",
+    "priority": 0.6
+  },
+  {
+    "loc": "https://www.sahi.com/glossary/broker",
+    "lastmod": "2026-05-11T14:46:38.975Z",
+    "changefreq": "monthly",
+    "priority": 0.6
+  },
+  {
+    "loc": "https://www.sahi.com/glossary/bse",
+    "lastmod": "2026-05-11T14:46:39.055Z",
+    "changefreq": "monthly",
+    "priority": 0.6
+  },
+  {
+    "loc": "https://www.sahi.com/glossary/bull-market",
+    "lastmod": "2026-05-11T14:46:39.137Z",
+    "changefreq": "monthly",
+    "priority": 0.6
+  },
+  {
+    "loc": "https://www.sahi.com/glossary/bullish",
+    "lastmod": "2026-05-11T14:46:39.224Z",
+    "changefreq": "monthly",
+    "priority": 0.6
+  },
+  {
+    "loc": "https://www.sahi.com/glossary/bullish-engulfing-pattern",
+    "lastmod": "2026-05-11T14:46:39.318Z",
+    "changefreq": "monthly",
+    "priority": 0.6
+  },
+  {
+    "loc": "https://www.sahi.com/glossary/bullish-option-strategies",
+    "lastmod": "2026-05-11T14:46:39.414Z",
+    "changefreq": "monthly",
+    "priority": 0.6
+  },
+  {
+    "loc": "https://www.sahi.com/glossary/business-analysis",
+    "lastmod": "2026-05-11T14:46:39.507Z",
+    "changefreq": "monthly",
+    "priority": 0.6
+  },
+  {
+    "loc": "https://www.sahi.com/glossary/cagr-compounded-annual-growth-rate",
+    "lastmod": "2026-05-11T14:46:39.599Z",
+    "changefreq": "monthly",
+    "priority": 0.6
+  },
+  {
+    "loc": "https://www.sahi.com/glossary/call-options",
+    "lastmod": "2026-05-11T14:46:39.693Z",
+    "changefreq": "monthly",
+    "priority": 0.6
+  },
+  {
+    "loc": "https://www.sahi.com/glossary/call-writing",
+    "lastmod": "2026-05-11T14:46:39.787Z",
+    "changefreq": "monthly",
+    "priority": 0.6
+  },
+  {
+    "loc": "https://www.sahi.com/glossary/callable-bond",
+    "lastmod": "2026-05-11T14:46:39.879Z",
+    "changefreq": "monthly",
+    "priority": 0.6
+  },
+  {
+    "loc": "https://www.sahi.com/glossary/can-slim",
+    "lastmod": "2026-05-11T14:46:39.968Z",
+    "changefreq": "monthly",
+    "priority": 0.6
+  },
+  {
+    "loc": "https://www.sahi.com/glossary/candlesticks",
+    "lastmod": "2026-05-11T14:46:40.054Z",
+    "changefreq": "monthly",
+    "priority": 0.6
+  },
+  {
+    "loc": "https://www.sahi.com/glossary/capital-asset-pricing-model-capm",
+    "lastmod": "2026-05-11T14:46:40.148Z",
+    "changefreq": "monthly",
+    "priority": 0.6
+  },
+  {
+    "loc": "https://www.sahi.com/glossary/capital-expenditure",
+    "lastmod": "2026-05-11T14:46:40.245Z",
+    "changefreq": "monthly",
+    "priority": 0.6
+  },
+  {
+    "loc": "https://www.sahi.com/glossary/capital-gain",
+    "lastmod": "2026-05-11T14:46:40.345Z",
+    "changefreq": "monthly",
+    "priority": 0.6
+  },
+  {
+    "loc": "https://www.sahi.com/glossary/capital-gain-2",
+    "lastmod": "2026-05-11T14:46:40.452Z",
+    "changefreq": "monthly",
+    "priority": 0.6
+  },
+  {
+    "loc": "https://www.sahi.com/glossary/capital-gain-bonds",
+    "lastmod": "2026-05-11T14:46:40.560Z",
+    "changefreq": "monthly",
+    "priority": 0.6
+  },
+  {
+    "loc": "https://www.sahi.com/glossary/capital-gain-index-cgi",
+    "lastmod": "2026-05-11T14:46:40.672Z",
+    "changefreq": "monthly",
+    "priority": 0.6
+  },
+  {
+    "loc": "https://www.sahi.com/glossary/capital-gains-exemption",
+    "lastmod": "2026-05-11T14:46:40.767Z",
+    "changefreq": "monthly",
+    "priority": 0.6
+  },
+  {
+    "loc": "https://www.sahi.com/glossary/capital-gains-on-shares",
+    "lastmod": "2026-05-11T14:46:40.866Z",
+    "changefreq": "monthly",
+    "priority": 0.6
+  },
+  {
+    "loc": "https://www.sahi.com/glossary/capital-gains-tax",
+    "lastmod": "2026-05-11T14:46:40.964Z",
+    "changefreq": "monthly",
+    "priority": 0.6
+  },
+  {
+    "loc": "https://www.sahi.com/glossary/capital-gains-tax-2",
+    "lastmod": "2026-05-11T14:46:41.063Z",
+    "changefreq": "monthly",
+    "priority": 0.6
+  },
+  {
+    "loc": "https://www.sahi.com/glossary/capital-gains-tax-3",
+    "lastmod": "2026-05-11T14:46:41.231Z",
+    "changefreq": "monthly",
+    "priority": 0.6
+  },
+  {
+    "loc": "https://www.sahi.com/glossary/capital-gains-tax-on-property",
+    "lastmod": "2026-05-11T14:46:41.387Z",
+    "changefreq": "monthly",
+    "priority": 0.6
+  },
+  {
+    "loc": "https://www.sahi.com/glossary/capital-vs-revenue-expenditure",
+    "lastmod": "2026-05-11T14:46:41.510Z",
+    "changefreq": "monthly",
+    "priority": 0.6
+  },
+  {
+    "loc": "https://www.sahi.com/glossary/capture-ratio",
+    "lastmod": "2026-05-11T14:46:41.639Z",
+    "changefreq": "monthly",
+    "priority": 0.6
+  },
+  {
+    "loc": "https://www.sahi.com/glossary/cash-and-cash-equivalents-cce",
+    "lastmod": "2026-05-11T14:46:41.729Z",
+    "changefreq": "monthly",
+    "priority": 0.6
+  },
+  {
+    "loc": "https://www.sahi.com/glossary/cash-conversion-cycle",
+    "lastmod": "2026-05-11T14:46:41.816Z",
+    "changefreq": "monthly",
+    "priority": 0.6
+  },
+  {
+    "loc": "https://www.sahi.com/glossary/cash-flow",
+    "lastmod": "2026-05-11T14:46:41.911Z",
+    "changefreq": "monthly",
+    "priority": 0.6
+  },
+  {
+    "loc": "https://www.sahi.com/glossary/cash-flow-2",
+    "lastmod": "2026-05-11T14:46:42.011Z",
+    "changefreq": "monthly",
+    "priority": 0.6
+  },
+  {
+    "loc": "https://www.sahi.com/glossary/cash-flow-from-financing-activities",
+    "lastmod": "2026-05-11T14:46:42.117Z",
+    "changefreq": "monthly",
+    "priority": 0.6
+  },
+  {
+    "loc": "https://www.sahi.com/glossary/cash-flow-from-investing-activities",
+    "lastmod": "2026-05-11T14:46:42.220Z",
+    "changefreq": "monthly",
+    "priority": 0.6
+  },
+  {
+    "loc": "https://www.sahi.com/glossary/cash-flow-statement",
+    "lastmod": "2026-05-11T14:46:42.323Z",
+    "changefreq": "monthly",
+    "priority": 0.6
+  },
+  {
+    "loc": "https://www.sahi.com/glossary/cash-ratio",
+    "lastmod": "2026-05-11T14:46:42.419Z",
+    "changefreq": "monthly",
+    "priority": 0.6
+  },
+  {
+    "loc": "https://www.sahi.com/glossary/cash-reserve-ratio-crr",
+    "lastmod": "2026-05-11T14:46:42.515Z",
+    "changefreq": "monthly",
+    "priority": 0.6
+  },
+  {
+    "loc": "https://www.sahi.com/glossary/cash-reserve-ratio-crr-2",
+    "lastmod": "2026-05-11T14:46:42.804Z",
+    "changefreq": "monthly",
+    "priority": 0.6
+  },
+  {
+    "loc": "https://www.sahi.com/glossary/cdsl-vs-nsdl-whats-the-difference",
+    "lastmod": "2026-05-11T14:46:42.905Z",
+    "changefreq": "monthly",
+    "priority": 0.6
+  },
+  {
+    "loc": "https://www.sahi.com/glossary/cgst-central-goods-and-service-tax",
+    "lastmod": "2026-05-11T14:46:43.014Z",
+    "changefreq": "monthly",
+    "priority": 0.6
+  },
+  {
+    "loc": "https://www.sahi.com/glossary/change-photo-signature-on-pan-card",
+    "lastmod": "2026-05-11T14:46:43.118Z",
+    "changefreq": "monthly",
+    "priority": 0.6
+  },
+  {
+    "loc": "https://www.sahi.com/glossary/circuit-breaker",
+    "lastmod": "2026-05-11T14:46:43.212Z",
+    "changefreq": "monthly",
+    "priority": 0.6
+  },
+  {
+    "loc": "https://www.sahi.com/glossary/closed-ended-funds",
+    "lastmod": "2026-05-11T14:46:43.305Z",
+    "changefreq": "monthly",
+    "priority": 0.6
+  },
+  {
+    "loc": "https://www.sahi.com/glossary/commodity",
+    "lastmod": "2026-05-11T14:46:43.400Z",
+    "changefreq": "monthly",
+    "priority": 0.6
+  },
+  {
+    "loc": "https://www.sahi.com/glossary/commodity-futures",
+    "lastmod": "2026-05-11T14:46:43.493Z",
+    "changefreq": "monthly",
+    "priority": 0.6
+  },
+  {
+    "loc": "https://www.sahi.com/glossary/commodity-market",
+    "lastmod": "2026-05-11T14:46:43.585Z",
+    "changefreq": "monthly",
+    "priority": 0.6
+  },
+  {
+    "loc": "https://www.sahi.com/glossary/commodity-options",
+    "lastmod": "2026-05-11T14:46:43.676Z",
+    "changefreq": "monthly",
+    "priority": 0.6
+  },
+  {
+    "loc": "https://www.sahi.com/glossary/common-stocks",
+    "lastmod": "2026-05-11T14:46:43.773Z",
+    "changefreq": "monthly",
+    "priority": 0.6
+  },
+  {
+    "loc": "https://www.sahi.com/glossary/company-debentures",
+    "lastmod": "2026-05-11T14:46:43.865Z",
+    "changefreq": "monthly",
+    "priority": 0.6
+  },
+  {
+    "loc": "https://www.sahi.com/glossary/company-pan-card",
+    "lastmod": "2026-05-11T14:46:43.957Z",
+    "changefreq": "monthly",
+    "priority": 0.6
+  },
+  {
+    "loc": "https://www.sahi.com/glossary/comparable-company-analysis",
+    "lastmod": "2026-05-11T14:46:44.048Z",
+    "changefreq": "monthly",
+    "priority": 0.6
+  },
+  {
+    "loc": "https://www.sahi.com/glossary/compound-yearly-growth-rate-cagr",
+    "lastmod": "2026-05-11T14:46:44.131Z",
+    "changefreq": "monthly",
+    "priority": 0.6
+  },
+  {
+    "loc": "https://www.sahi.com/glossary/consolidated-financial-statements",
+    "lastmod": "2026-05-11T14:46:44.222Z",
+    "changefreq": "monthly",
+    "priority": 0.6
+  },
+  {
+    "loc": "https://www.sahi.com/glossary/consumer-price-index-cpi",
+    "lastmod": "2026-05-11T14:46:44.308Z",
+    "changefreq": "monthly",
+    "priority": 0.6
+  },
+  {
+    "loc": "https://www.sahi.com/glossary/contingent-liabilities",
+    "lastmod": "2026-05-11T14:46:44.401Z",
+    "changefreq": "monthly",
+    "priority": 0.6
+  },
+  {
+    "loc": "https://www.sahi.com/compare/best-platform-for-scalping-bank-nifty-options",
+    "lastmod": "2026-06-18T07:16:21.696Z",
+    "changefreq": "weekly",
+    "priority": 0.6
+  },
+  {
+    "loc": "https://www.sahi.com/compare/best-platform-for-active-intraday-trading-india",
+    "lastmod": "2026-07-08T08:13:23.586Z",
+    "changefreq": "weekly",
+    "priority": 0.6
+  },
+  {
+    "loc": "https://www.sahi.com/compare/best-chart-based-trading-platforms-india-2026",
+    "lastmod": "2026-07-31T11:41:52.053Z",
+    "changefreq": "weekly",
+    "priority": 0.6
+  },
+  {
+    "loc": "https://www.sahi.com/compare/broker-fastest-execution-speed",
+    "lastmod": "2026-09-16T09:48:29.768Z",
+    "changefreq": "weekly",
+    "priority": 0.6
+  }
+]
