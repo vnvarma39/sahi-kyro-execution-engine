@@ -1,0 +1,12 @@
+{
+  "name": "@sahi-hq/webmcp-kyro-sdk",
+  "version": "2.4.0",
+  "description": "Chrome WebMCP (Web Model Context Protocol, Origin Trial 2026-11-17) Agentic Execution Bridge for web.sahi.com",
+  "type": "module",
+  "main": "webmcp_benchmark.mjs",
+  "scripts": {
+    "benchmark": "node webmcp_benchmark.mjs"
+  },
+  "author": "Nikhil Varma Vanapala",
+  "license": "MIT"
+}
