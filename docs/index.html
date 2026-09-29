@@ -1,0 +1,2124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SAHI // BLOOMBERG QUANT &amp; F&amp;O DAY-TRADER TERMINAL [v3.2]</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    /* =========================================================================
+       AUTHENTIC BLOOMBERG LAUNCHPAD / QUANT DAY-TRADER TERMINAL
+       Pitch-Black CRT (#05070A) + Bloomberg Amber (#FF9900) + Phosphor (#00E676)
+       + Telemetry Cyan (#00D2FF) + Crimson Alert (#FF2E54).
+       Zero Purple Gradients. Zero Overflow Bugs. 100% Functional Controls.
+       ========================================================================= */
+    :root {
+      --bg-void: #040608;
+      --bg-panel: #0A0D12;
+      --bg-header: #10151E;
+      --bg-elevated: #151C28;
+      --border-steel: #242E3E;
+      --border-bright: #3A4963;
+
+      --text-white: #F0F4F8;
+      --text-secondary: #9BA8BC;
+      --text-muted: #5E6C82;
+
+      --bb-amber: #FF9900;
+      --bb-amber-dim: rgba(255, 153, 0, 0.14);
+      --bb-green: #00E676;
+      --bb-green-dim: rgba(0, 230, 118, 0.13);
+      --bb-lime: #B8FF01;
+      --bb-cyan: #00D2FF;
+      --bb-cyan-dim: rgba(0, 210, 255, 0.13);
+      --bb-red: #FF2E54;
+      --bb-red-dim: rgba(255, 46, 84, 0.15);
+      --bb-orange: #FF5500;
+    }
+
+    body.paper-theme {
+      --bg-void: #ECE8DF;
+      --bg-panel: #F7F4EE;
+      --bg-header: #E2DDD2;
+      --bg-elevated: #EAE5DA;
+      --border-steel: #181B20;
+      --border-bright: #000000;
+      --text-white: #0D0F12;
+      --text-secondary: #363C47;
+      --text-muted: #646C7A;
+      --bb-amber: #D95300;
+      --bb-green: #007A44;
+      --bb-cyan: #0044CC;
+      --bb-red: #D90429;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html, body {
+      width: 100%;
+      max-width: 100vw;
+      overflow-x: hidden;
+      background-color: var(--bg-void);
+      color: var(--text-white);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      line-height: 1.35;
+      font-variant-numeric: tabular-nums;
+    }
+
+    /* =========================================================================
+       TOP BLOOMBERG FUNCTION KEY & SYSTEM TELEMETRY BAR
+       ========================================================================= */
+    .bb-top-strip {
+      background: #000000;
+      border-bottom: 1px solid var(--border-steel);
+      padding: 4px 12px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      font-size: 10.5px;
+    }
+
+    .bb-fkey-group {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      flex-wrap: wrap;
+    }
+
+    .bb-fkey {
+      background: #161C26;
+      border: 1px solid var(--border-steel);
+      color: var(--text-secondary);
+      padding: 3px 8px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      transition: all 0.08s ease;
+    }
+
+    .bb-fkey span.fk {
+      color: var(--bb-amber);
+      font-weight: 800;
+    }
+
+    .bb-fkey:hover, .bb-fkey.active {
+      background: var(--bb-amber);
+      color: #000000;
+      border-color: var(--bb-amber);
+    }
+    .bb-fkey:hover span.fk, .bb-fkey.active span.fk {
+      color: #000000;
+    }
+
+    .bb-sys-status {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--text-secondary);
+      font-size: 10px;
+    }
+
+    .led-dot {
+      width: 7px;
+      height: 7px;
+      background: var(--bb-green);
+      display: inline-block;
+      box-shadow: 0 0 6px var(--bb-green);
+    }
+
+    /* =========================================================================
+       COMMAND LINE BAR + 5-INSTRUMENT TICKER RIBBON (FIXED 5-COLUMN GRID)
+       ========================================================================= */
+    .bb-command-deck {
+      background: var(--bg-header);
+      border-bottom: 2px solid var(--bb-amber);
+      padding: 8px 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .cmd-row {
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .terminal-id-box {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding-right: 10px;
+      border-right: 1px solid var(--border-steel);
+    }
+
+    .terminal-badge {
+      background: var(--bb-amber);
+      color: #000;
+      font-weight: 800;
+      font-size: 11px;
+      padding: 3px 7px;
+      letter-spacing: 0.05em;
+    }
+
+    .terminal-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      font-size: 15px;
+      color: var(--text-white);
+      white-space: nowrap;
+    }
+
+    /* BLOOMBERG COMMAND LINE INPUT */
+    .bb-cmdline {
+      display: flex;
+      align-items: center;
+      background: #030507;
+      border: 1px solid var(--bb-amber);
+      padding: 3px 4px 3px 10px;
+      gap: 8px;
+      min-width: 0;
+    }
+
+    .bb-cmd-tag {
+      color: var(--bb-amber);
+      font-weight: 800;
+      font-size: 11px;
+      white-space: nowrap;
+    }
+
+    .bb-cmd-input {
+      flex: 1;
+      background: transparent;
+      border: none;
+      color: var(--bb-lime);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11.5px;
+      font-weight: 600;
+      outline: none;
+      min-width: 0;
+    }
+
+    .bb-go-btn {
+      background: var(--bb-green);
+      color: #000;
+      border: none;
+      font-family: 'JetBrains Mono', monospace;
+      font-weight: 800;
+      font-size: 10.5px;
+      padding: 5px 12px;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+    .bb-go-btn:hover {
+      filter: brightness(1.12);
+    }
+
+    .hw-actions {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .hw-btn {
+      background: var(--bg-elevated);
+      border: 1px solid var(--border-bright);
+      color: var(--text-white);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      font-weight: 700;
+      padding: 5px 10px;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+    .hw-btn.amber {
+      background: var(--bb-amber);
+      color: #000;
+      border-color: var(--bb-amber);
+    }
+    .hw-btn.green {
+      background: var(--bb-green);
+      color: #000;
+      border-color: var(--bb-green);
+    }
+
+    /* 5-INSTRUMENT QUANT TICKER GRID — ZERO OVERFLOW, CLEAN 2-ROW CARDS */
+    .ticker-deck-5 {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 8px;
+    }
+
+    .quant-ticker-card {
+      background: var(--bg-panel);
+      border: 1px solid var(--border-steel);
+      padding: 6px 10px;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+      transition: border-color 0.1s ease, background 0.1s ease;
+      min-width: 0;
+    }
+
+    .quant-ticker-card:hover {
+      border-color: var(--bb-amber);
+    }
+
+    .quant-ticker-card.active {
+      background: #131B27;
+      border: 1.5px solid var(--bb-amber);
+      box-shadow: inset 3px 0 0 var(--bb-amber);
+    }
+
+    .qtc-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .qtc-sym {
+      font-weight: 800;
+      font-size: 11px;
+      color: var(--bb-amber);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .qtc-chg {
+      font-size: 10px;
+      font-weight: 700;
+      padding: 1px 5px;
+      background: var(--bb-green-dim);
+      color: var(--bb-green);
+      white-space: nowrap;
+    }
+    .qtc-chg.neg {
+      background: var(--bb-red-dim);
+      color: var(--bb-red);
+    }
+
+    .qtc-bot {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 4px;
+    }
+
+    .qtc-price {
+      font-size: 13.5px;
+      font-weight: 800;
+      color: var(--text-white);
+      white-space: nowrap;
+    }
+
+    .qtc-meta {
+      font-size: 9.5px;
+      color: var(--text-secondary);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    /* =========================================================================
+       MAIN 4-QUADRANT BLOOMBERG LAUNCHPAD GRID + ZOOM MODE
+       ========================================================================= */
+    .launchpad-grid {
+      padding: 8px 12px;
+      display: grid;
+      grid-template-columns: 1.25fr 1fr;
+      gap: 8px;
+      align-items: stretch;
+    }
+
+    .launchpad-grid.zoom-mode {
+      grid-template-columns: 1fr;
+    }
+    .launchpad-grid.zoom-mode .bb-window:not(.zoomed-win) {
+      display: none;
+    }
+
+    .bb-window {
+      background: var(--bg-panel);
+      border: 1px solid var(--border-steel);
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+    }
+
+    .bb-win-bar {
+      background: var(--bg-header);
+      border-bottom: 1px solid var(--border-steel);
+      padding: 5px 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .bb-win-title {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      min-width: 0;
+    }
+
+    .win-code {
+      background: var(--bb-amber);
+      color: #000;
+      font-size: 9.5px;
+      font-weight: 800;
+      padding: 1px 6px;
+      white-space: nowrap;
+    }
+
+    .win-label {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--text-white);
+    }
+
+    .bb-win-tools {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      flex-wrap: wrap;
+    }
+
+    .win-btn {
+      background: var(--bg-elevated);
+      border: 1px solid var(--border-steel);
+      color: var(--text-secondary);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 9.5px;
+      font-weight: 700;
+      padding: 2px 7px;
+      cursor: pointer;
+    }
+    .win-btn:hover, .win-btn.active {
+      background: var(--bb-cyan);
+      color: #000;
+      border-color: var(--bb-cyan);
+    }
+    .win-btn.amber-active {
+      background: var(--bb-amber);
+      color: #000;
+      border-color: var(--bb-amber);
+    }
+
+    .bb-win-body {
+      padding: 8px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      flex: 1;
+      min-width: 0;
+    }
+
+    /* CRT CHART CONTAINER */
+    .chart-stage {
+      background: #030508;
+      border: 1px solid var(--border-steel);
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+    }
+
+    .chart-overlay-bar {
+      position: absolute;
+      top: 6px;
+      left: 8px;
+      right: 8px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      pointer-events: none;
+      z-index: 4;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .ov-pill {
+      background: rgba(8, 12, 18, 0.9);
+      border: 1px solid var(--border-bright);
+      padding: 2px 7px;
+      font-size: 10px;
+      color: var(--bb-lime);
+    }
+
+    canvas.quant-canvas {
+      display: block;
+      width: 100%;
+      cursor: crosshair;
+    }
+
+    /* COMPACT METRIC STRIPS */
+    .kpi-row-4 {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 6px;
+    }
+    .kpi-row-3 {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 6px;
+    }
+
+    .kpi-box {
+      background: var(--bg-header);
+      border: 1px solid var(--border-steel);
+      padding: 5px 8px;
+      min-width: 0;
+    }
+    .kb-lbl {
+      font-size: 9px;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .kb-val {
+      font-size: 13.5px;
+      font-weight: 800;
+      margin: 1px 0;
+      white-space: nowrap;
+    }
+    .kb-sub {
+      font-size: 9px;
+      color: var(--text-secondary);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    /* DENSE QUANT TABLES */
+    .quant-table-scroll {
+      border: 1px solid var(--border-steel);
+      background: #05080C;
+      overflow-y: auto;
+      max-height: 155px;
+    }
+
+    table.q-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 10.5px;
+    }
+    table.q-table th {
+      position: sticky;
+      top: 0;
+      background: #121822;
+      color: var(--bb-amber);
+      text-align: left;
+      padding: 4px 7px;
+      font-size: 9.5px;
+      border-bottom: 1px solid var(--border-steel);
+      z-index: 2;
+    }
+    table.q-table td {
+      padding: 4px 7px;
+      border-bottom: 1px solid #141B26;
+      white-space: nowrap;
+    }
+    table.q-table tr:hover td {
+      background: rgba(255, 153, 0, 0.12);
+    }
+    table.q-table tr.atm-row td {
+      background: rgba(255, 153, 0, 0.18);
+      font-weight: 700;
+    }
+
+    /* =========================================================================
+       WEBMCP EXPLAINER + INTERACTIVE WORKFLOW PIPELINE IN WINDOW 02
+       ========================================================================= */
+    .webmcp-banner {
+      background: #0C131F;
+      border: 1px solid var(--bb-cyan);
+      padding: 7px 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .wm-title-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .wm-tag {
+      color: var(--bb-cyan);
+      font-weight: 800;
+      font-size: 10.5px;
+    }
+
+    .wm-desc {
+      color: var(--text-secondary);
+      font-size: 10px;
+      line-height: 1.35;
+    }
+
+    /* INTERACTIVE STEP PIPELINE */
+    .webmcp-controls-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 1fr;
+      gap: 8px;
+    }
+
+    .catalyst-list-compact {
+      border: 1px solid var(--border-steel);
+      background: #05080C;
+      max-height: 135px;
+      overflow-y: auto;
+    }
+
+    .cat-row {
+      padding: 5px 8px;
+      border-bottom: 1px solid #141B26;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 8px;
+    }
+    .cat-row:hover {
+      background: var(--bb-amber-dim);
+    }
+    .cat-row.active {
+      background: var(--bb-amber-dim);
+      border-left: 3px solid var(--bb-amber);
+    }
+    .cr-head {
+      font-size: 10.5px;
+      color: var(--text-white);
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    .cr-tag {
+      font-size: 9px;
+      color: var(--bb-amber);
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    /* INTERACTIVE PARAMETER SLIDERS FOR PAYOFF & WEBMCP */
+    .param-box {
+      border: 1px solid var(--border-steel);
+      background: var(--bg-header);
+      padding: 6px 9px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      justify-content: space-between;
+    }
+
+    .slider-line {
+      display: flex;
+       flex-direction: column;
+      gap: 2px;
+    }
+    .sl-top {
+      display: flex;
+      justify-content: space-between;
+      font-size: 9.5px;
+      color: var(--text-secondary);
+    }
+
+    input[type="range"].bb-slider {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 100%;
+      height: 5px;
+      background: #040608;
+      border: 1px solid var(--border-steel);
+      outline: none;
+    }
+    input[type="range"].bb-slider::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 13px;
+      height: 13px;
+      background: var(--bb-amber);
+      border: 1px solid #000;
+      cursor: pointer;
+    }
+
+    /* WEBMCP JSON-RPC INSPECTOR + LEG EDITOR SPLIT */
+    .webmcp-bottom-split {
+      display: grid;
+      grid-template-columns: 1.15fr 1fr;
+      gap: 8px;
+    }
+
+    .json-rpc-box {
+      background: #030508;
+      border: 1px solid var(--border-steel);
+      padding: 6px 8px;
+      font-size: 10px;
+      color: var(--bb-cyan);
+      max-height: 140px;
+      overflow: auto;
+      white-space: pre;
+    }
+
+    /* =========================================================================
+       LIVE EMSX ORDER BLOTTER & POLYGLOT SOURCE DRAWER AT BOTTOM
+       ========================================================================= */
+    .bottom-deck {
+      padding: 0 12px 16px 12px;
+      display: grid;
+      grid-template-columns: 1.1fr 1.2fr;
+      gap: 8px;
+    }
+
+    .code-terminal-pre {
+      background: #030508;
+      border: 1px solid var(--border-steel);
+      padding: 8px 10px;
+      color: #D4E2F4;
+      font-size: 10.5px;
+      line-height: 1.45;
+      max-height: 220px;
+      overflow: auto;
+      white-space: pre;
+    }
+
+    /* COLOR UTILITIES */
+    .c-amber { color: var(--bb-amber); }
+    .c-green { color: var(--bb-green); }
+    .c-lime { color: var(--bb-lime); }
+    .c-cyan { color: var(--bb-cyan); }
+    .c-red { color: var(--bb-red); }
+
+    @media (max-width: 1200px) {
+      .launchpad-grid, .bottom-deck, .webmcp-controls-grid, .webmcp-bottom-split {
+        grid-template-columns: 1fr;
+      }
+      .ticker-deck-5 {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      .cmd-row {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===================================================================== -->
+  <!-- TOP BLOOMBERG FUNCTION KEY BAR (F1-F6 WORKSPACE & SYSTEM TELEMETRY)   -->
+  <!-- ===================================================================== -->
+  <div class="bb-top-strip">
+    <div class="bb-fkey-group">
+      <button class="bb-fkey active" id="fk-0" onclick="switchViewMode(0)">
+        <span class="fk">F1</span><span>4-QUADRANT LAUNCHPAD</span>
+      </button>
+      <button class="bb-fkey" id="fk-1" onclick="switchViewMode(1)">
+        <span class="fk">F2</span><span>GEX &amp; 3D VOL SURFACE</span>
+      </button>
+      <button class="bb-fkey" id="fk-2" onclick="switchViewMode(2)">
+        <span class="fk">F3</span><span>WEBMCP &amp; KYRO COMPILER</span>
+      </button>
+      <button class="bb-fkey" id="fk-3" onclick="switchViewMode(3)">
+        <span class="fk">F4</span><span>TILTGUARD 1.93µs RMS</span>
+      </button>
+      <button class="bb-fkey" id="fk-4" onclick="switchViewMode(4)">
+        <span class="fk">F5</span><span>MUMBAI 3-HOP DOM SLICER</span>
+      </button>
+    </div>
+
+    <div class="bb-sys-status">
+      <span><span class="led-dot"></span> SAHI FEEDBROKER: <strong>RUST Arc&lt;[u8]&gt; ZERO-COPY</strong></span>
+      <span>RMS: <strong class="c-green">199,517 ORD/S (1.93µs)</strong></span>
+      <span>WEBMCP V8: <strong class="c-cyan">681,562 OPS/S</strong></span>
+      <span>DATA LAKE: <strong class="c-amber">203.71 MB (936,033 ROWS)</strong></span>
+    </div>
+  </div>
+
+  <!-- ===================================================================== -->
+  <!-- BLOOMBERG COMMAND LINE + 5-INSTRUMENT TICKER RIBBON                   -->
+  <!-- ===================================================================== -->
+  <header class="bb-command-deck">
+    <div class="cmd-row">
+      <div class="terminal-id-box">
+        <span class="terminal-badge">SAHI // PRO</span>
+        <span class="terminal-title">KYRO QUANT &amp; F&amp;O EXECUTION TERMINAL</span>
+      </div>
+
+      <div class="bb-cmdline">
+        <span class="bb-cmd-tag">&lt;KYRO WEBMCP&gt;</span>
+        <input
+          type="text"
+          id="cmd-input"
+          class="bb-cmd-input"
+          value="NIFTY 22750 BEAR PUT SPREAD // HEDGE LONG LEG FIRST (0.0ms) // MAX RISK ₹12,000"
+        />
+        <button class="bb-go-btn" onclick="runCommandLineStrategy()">&lt;GO&gt; COMPILE &amp; ROUTE ↵</button>
+      </div>
+
+      <div class="hw-actions">
+        <button class="hw-btn green" id="btn-stream-toggle" onclick="toggleStream()">● LIVE 60FPS TAPE: ON</button>
+        <button class="hw-btn" onclick="document.body.classList.toggle('paper-theme')">◐ THEME</button>
+      </div>
+    </div>
+
+    <!-- CLEAN 5-COLUMN INSTRUMENT GRID (ZERO OVERFLOW, NO WRAPPING COLLISIONS) -->
+    <div class="ticker-deck-5" id="ticker-deck">
+      <div class="quant-ticker-card active" onclick="selectInstrument('NIFTY50', this)">
+        <div class="qtc-top">
+          <span class="qtc-sym">NIFTY 50 INDEX</span>
+          <span class="qtc-chg neg" id="chg-NIFTY50">-0.38%</span>
+        </div>
+        <div class="qtc-bot">
+          <span class="qtc-price" id="px-NIFTY50">22,716.20</span>
+          <span class="qtc-meta">S*: 22,750 • GEX: -1,305 Cr</span>
+        </div>
+      </div>
+
+      <div class="quant-ticker-card" onclick="selectInstrument('BANKNIFTY', this)">
+        <div class="qtc-top">
+          <span class="qtc-sym">BANKNIFTY</span>
+          <span class="qtc-chg" id="chg-BANKNIFTY">+0.54%</span>
+        </div>
+        <div class="qtc-bot">
+          <span class="qtc-price" id="px-BANKNIFTY">51,636.70</span>
+          <span class="qtc-meta">S*: 51,700 • GEX: -690 Cr</span>
+        </div>
+      </div>
+
+      <div class="quant-ticker-card" onclick="selectInstrument('SENSEX', this)">
+        <div class="qtc-top">
+          <span class="qtc-sym">BSE SENSEX</span>
+          <span class="qtc-chg" id="chg-SENSEX">+0.31%</span>
+        </div>
+        <div class="qtc-bot">
+          <span class="qtc-price" id="px-SENSEX">74,069.95</span>
+          <span class="qtc-meta">S*: 74,100 • GEX: +412 Cr</span>
+        </div>
+      </div>
+
+      <div class="quant-ticker-card" onclick="selectInstrument('CRUDEOIL_MCX', this)">
+        <div class="qtc-top">
+          <span class="qtc-sym">MCX CRUDE OIL</span>
+          <span class="qtc-chg neg" id="chg-CRUDEOIL_MCX">-1.12%</span>
+        </div>
+        <div class="qtc-bot">
+          <span class="qtc-price" id="px-CRUDEOIL_MCX">8,154.00</span>
+          <span class="qtc-meta">S*: 8,150 • IV: 31.5%</span>
+        </div>
+      </div>
+
+      <div class="quant-ticker-card" onclick="selectInstrument('GOLD_MCX', this)">
+        <div class="qtc-top">
+          <span class="qtc-sym">MCX GOLD</span>
+          <span class="qtc-chg" id="chg-GOLD_MCX">+0.68%</span>
+        </div>
+        <div class="qtc-bot">
+          <span class="qtc-price" id="px-GOLD_MCX">1,35,613.00</span>
+          <span class="qtc-meta">S*: 1,35,500 • IV: 15.5%</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===================================================================== -->
+  <!-- 4-QUADRANT BLOOMBERG QUANT LAUNCHPAD                                  -->
+  <!-- ===================================================================== -->
+  <main class="launchpad-grid" id="launchpad-grid">
+
+    <!-- =================================================================== -->
+    <!-- WINDOW 01 [F2]: SCALPER 3.0 — SPOT/GEX TAPE & 3D GAMMA/VANNA MESH   -->
+    <!-- =================================================================== -->
+    <section class="bb-window" id="win-1">
+      <div class="bb-win-bar">
+        <div class="bb-win-title">
+          <span class="win-code">F2 // GEX-ML</span>
+          <span class="win-label">Scalper 3.0: Synced Candles, Zero-Gamma Flip (S*) &amp; 3D GEX Surface</span>
+        </div>
+        <div class="bb-win-tools">
+          <button class="win-btn active" id="w1-btn-split" onclick="setWin1Mode('split')">SPLIT 2D+3D</button>
+          <button class="win-btn" id="w1-btn-3d" onclick="setWin1Mode('3d')">FULL 3D SURFACE</button>
+          <button class="win-btn amber-active" id="w1-btn-gate" onclick="toggleRegimeGate()">REGIME ML GATE: ON</button>
+          <button class="win-btn" onclick="toggleZoomWindow(1)">[⤢ MAXIMIZE]</button>
+        </div>
+      </div>
+
+      <div class="bb-win-body">
+        <div class="chart-stage">
+          <div class="chart-overlay-bar">
+            <span class="ov-pill" id="w1-ov-left">NIFTY50 • S* ZERO-GAMMA FLIP: 22,750.0 • DRAG 3D MESH TO ROTATE</span>
+            <span class="ov-pill" id="w1-ov-right" style="color:var(--bb-amber);">REGIME: -GEX BREAKOUT → LORENTZIAN 6D k-NN ARMED</span>
+          </div>
+          <canvas id="canvas-w1" class="quant-canvas" height="275"></canvas>
+        </div>
+
+        <div class="kpi-row-4">
+          <div class="kpi-box">
+            <div class="kb-lbl">CALIBRATED SPOT</div>
+            <div class="kb-val c-white" id="w1-spot">22,716.20</div>
+            <div class="kb-sub" id="w1-maxpain">MAX PAIN: 22,750</div>
+          </div>
+          <div class="kpi-box">
+            <div class="kb-lbl">ZERO-GAMMA FLIP (S*)</div>
+            <div class="kb-val c-amber" id="w1-flip">22,750.00</div>
+            <div class="kb-sub" id="w1-netgex">NET GEX: -1,305.2 Cr</div>
+          </div>
+          <div class="kpi-box">
+            <div class="kb-lbl">ACTIVE SAHI ML ENGINE</div>
+            <div class="kb-val c-cyan" id="w1-ml" style="font-size:11.5px;">LORENTZIAN k-NN (6D)</div>
+            <div class="kb-sub" id="w1-whipsaw">WHIPSAWS BLOCKED: 38.4%</div>
+          </div>
+          <div class="kpi-box">
+            <div class="kb-lbl">600K-TICK SHARPE / WIN%</div>
+            <div class="kb-val c-green" id="w1-sharpe">3.18 / 68.4%</div>
+            <div class="kb-sub">VS UNGATED: 1.74 / 51.2%</div>
+          </div>
+        </div>
+
+        <div class="quant-table-scroll">
+          <table class="q-table">
+            <thead>
+              <tr>
+                <th>STRIKE</th>
+                <th>DEALER NET GEX</th>
+                <th>CE LTP</th>
+                <th>PE LTP</th>
+                <th>DELTA (Δ)</th>
+                <th>GAMMA (Γ)</th>
+                <th>VANNA (∂Δ/∂σ)</th>
+                <th>CHARM (-∂Δ/∂t)</th>
+              </tr>
+            </thead>
+            <tbody id="w1-option-tbody"></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- =================================================================== -->
+    <!-- WINDOW 02 [F3]: CHROME WebMCP & KYRO PULSE-TO-PAYOFF COMPILER       -->
+    <!-- =================================================================== -->
+    <section class="bb-window" id="win-2">
+      <div class="bb-win-bar">
+        <div class="bb-win-title">
+          <span class="win-code">F3 // WEBMCP</span>
+          <span class="win-label">Chrome WebMCP (`navigator.modelContext`) &amp; Hedged-First Payoff Compiler</span>
+        </div>
+        <div class="bb-win-tools">
+          <button class="win-btn active" id="st-0" onclick="selectStrategyStructure(0)">BEAR PUT SPREAD</button>
+          <button class="win-btn" id="st-1" onclick="selectStrategyStructure(1)">BULL CALL SPREAD</button>
+          <button class="win-btn" id="st-2" onclick="selectStrategyStructure(2)">IRON CONDOR</button>
+          <button class="win-btn" id="st-3" onclick="selectStrategyStructure(3)">LONG STRADDLE</button>
+          <button class="win-btn" onclick="toggleZoomWindow(2)">[⤢ MAXIMIZE]</button>
+        </div>
+      </div>
+
+      <div class="bb-win-body">
+        <!-- EXPLICIT REASON WHY WEBMCP EXISTS AT SAHI -->
+        <div class="webmcp-banner">
+          <div class="wm-title-row">
+            <span class="wm-tag">WHY WEBMCP IS HERE: `web.sahi.com` CHROME ORIGIN TRIAL (EXPIRES NOV 17, 2026)</span>
+            <button class="bb-go-btn" onclick="executeWebMcpBasketLive()">▶ EXECUTE WEBMCP BASKET TO BLOTTER</button>
+          </div>
+          <div class="wm-desc">
+            Sahi registered <code>web.sahi.com</code> for Chrome's <strong>Web Model Context Protocol (`navigator.modelContext`)</strong> so Kyro AI can compile breaking <code>sahi.com/news</code> catalysts into multi-leg F&amp;O baskets in <strong>1.18 µs</strong> and route <strong>Long Hedge Legs at 0.00ms before Short Legs (+6.80ms)</strong>—cutting upfront SPAN margin by <strong>75.7%</strong>.
+          </div>
+        </div>
+
+        <!-- STEP 1 & 2: PICK LIVE SAHI.COM/NEWS CATALYST + ADJUST LOTS / IV / DTE SLIDERS -->
+        <div class="webmcp-controls-grid">
+          <div class="catalyst-list-compact" id="w2-catalyst-list"></div>
+
+          <div class="param-box">
+            <div class="slider-line">
+              <div class="sl-top">
+                <span>BASKET LOTS (MULTIPLIER):</span>
+                <strong class="c-amber" id="w2-lots-val">4 LOTS (300 QTY)</strong>
+              </div>
+              <input type="range" id="w2-lots-slider" class="bb-slider" min="1" max="25" value="4" oninput="recalcWebMcpPayoff()" />
+            </div>
+
+            <div class="slider-line">
+              <div class="sl-top">
+                <span>DAYS TO EXPIRY (T+0 CURVE):</span>
+                <strong class="c-cyan" id="w2-dte-val">4.0 DTE</strong>
+              </div>
+              <input type="range" id="w2-dte-slider" class="bb-slider" min="1" max="20" value="4" oninput="recalcWebMcpPayoff()" />
+            </div>
+
+            <div class="slider-line">
+              <div class="sl-top">
+                <span>IV SHOCK SIMULATION (VEGA/VANNA):</span>
+                <strong class="c-green" id="w2-iv-val">+0.0% IV</strong>
+              </div>
+              <input type="range" id="w2-iv-slider" class="bb-slider" min="-15" max="20" value="0" oninput="recalcWebMcpPayoff()" />
+            </div>
+          </div>
+        </div>
+
+        <!-- HIGH-DPI QUANT PAYOFF CANVAS WITH AXES, BREAKEVEN, T+0 CURVE & HOVER CROSSHAIR -->
+        <div class="chart-stage">
+          <div class="chart-overlay-bar">
+            <span class="ov-pill" id="w2-payoff-hud">BEAR PUT DEBIT SPREAD • HOVER CHART FOR EXACT STRIKE P&amp;L &amp; GREEKS</span>
+            <span class="ov-pill" style="color:var(--bb-amber);" id="w2-margin-hud">SPAN MARGIN: ₹28,400 (SAVED 75.7% VS NAKED)</span>
+          </div>
+          <canvas id="canvas-w2" class="quant-canvas" height="210"></canvas>
+        </div>
+
+        <!-- BOTTOM SPLIT: INTERACTIVE MULTI-LEG ORDER TICKET + LIVE WEBMCP JSON-RPC PAYLOAD -->
+        <div class="webmcp-bottom-split">
+          <div class="quant-table-scroll" style="max-height:140px;">
+            <table class="q-table">
+              <thead>
+                <tr>
+                  <th>EXEC SEQ</th>
+                  <th>SIDE</th>
+                  <th>STRIKE (EDIT)</th>
+                  <th>LOTS</th>
+                  <th>LTP</th>
+                  <th>DELTA</th>
+                  <th>ROLE</th>
+                </tr>
+              </thead>
+              <tbody id="w2-legs-tbody"></tbody>
+            </table>
+          </div>
+
+          <pre class="json-rpc-box" id="w2-json-rpc"></pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- =================================================================== -->
+    <!-- WINDOW 03 [F4]: P&L PROTECT 2.0 — TILTGUARD™ 1.93µs RMS & ECG       -->
+    <!-- =================================================================== -->
+    <section class="bb-window" id="win-3">
+      <div class="bb-win-bar">
+        <div class="bb-win-title">
+          <span class="win-code">F4 // TILTGUARD</span>
+          <span class="win-label">P&amp;L Protect 2.0: Pre-Trade Behavioral RMS (1.93µs) &amp; 1-Lot Governor</span>
+        </div>
+        <div class="bb-win-tools">
+          <button class="win-btn amber-active" onclick="triggerTiltEvent('SL_DRAG')">+SL DRAG (+24)</button>
+          <button class="win-btn amber-active" onclick="triggerTiltEvent('MARTINGALE')">+2.5x LOTS (+32)</button>
+          <button class="win-btn amber-active" onclick="triggerTiltEvent('TAMPER')">+REMOVE LOCK (+28)</button>
+          <button class="win-btn" onclick="triggerTiltEvent('RESET')">↺ RESET</button>
+          <button class="win-btn" onclick="toggleZoomWindow(3)">[⤢ MAXIMIZE]</button>
+        </div>
+      </div>
+
+      <div class="bb-win-body">
+        <div class="chart-stage">
+          <div class="chart-overlay-bar">
+            <span class="ov-pill" id="w3-ecg-hud">BIOMETRIC TILT ECG: 14 / 100 [GREEN: NORMAL EXECUTION]</span>
+            <span class="ov-pill" style="color:var(--bb-cyan);" id="w3-hmac-hud">HMAC-SHA256 LOCK: 48484df4c4d156e2</span>
+          </div>
+          <canvas id="canvas-w3" class="quant-canvas" height="195"></canvas>
+        </div>
+
+        <div class="kpi-row-4">
+          <div class="kpi-box">
+            <div class="kb-lbl">COMPOSITE TILT SCORE</div>
+            <div class="kb-val c-green" id="w3-score">14 / 100</div>
+            <div class="kb-sub" id="w3-bitmask">BITMASK: 0x03 (ACTIVE)</div>
+          </div>
+          <div class="kpi-box">
+            <div class="kb-lbl">ACTIVE RMS POLICY</div>
+            <div class="kb-val c-cyan" id="w3-policy" style="font-size:11.5px;">APPROVED (MAX 10 LOTS)</div>
+            <div class="kb-sub">1.93µs ATOMIC CHECK</div>
+          </div>
+          <div class="kpi-box">
+            <div class="kb-lbl">SMART-PEG EXIT SLIPPAGE</div>
+            <div class="kb-val c-green">-4.2 bps</div>
+            <div class="kb-sub">VS -19.8 bps MARKET DUMP</div>
+          </div>
+          <div class="kpi-box">
+            <div class="kb-lbl">50,000-SESSION COHORT</div>
+            <div class="kb-val c-amber">76.8% LOSS</div>
+            <div class="kb-sub">1-LOT GOV SAVES PM FLOW</div>
+          </div>
+        </div>
+
+        <div class="quant-table-scroll">
+          <table class="q-table">
+            <thead>
+              <tr>
+                <th>SESSION ID</th>
+                <th>TRADER ARCHETYPE</th>
+                <th>SL DRAGS</th>
+                <th>LOT MULT</th>
+                <th>TILT SCORE</th>
+                <th>TILTGUARD RMS ACTION</th>
+              </tr>
+            </thead>
+            <tbody id="w3-sessions-tbody"></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- =================================================================== -->
+    <!-- WINDOW 04 [F5]: MUMBAI 3-HOP PACKET SONAR, L2 DOM & ICEBERG SLICER  -->
+    <!-- =================================================================== -->
+    <section class="bb-window" id="win-4">
+      <div class="bb-win-bar">
+        <div class="bb-win-title">
+          <span class="win-code">F5 // EMS-SONAR</span>
+          <span class="win-label">Mumbai 3-Hop Topology (5.73ms P95), 5-Lvl DOM &amp; VPIN Micro-Iceberg Slicer</span>
+        </div>
+        <div class="bb-win-tools">
+          <button class="win-btn amber-active" onclick="fireEmsBurst()">⚡ ROUTE ICEBERG BURST</button>
+          <button class="win-btn" onclick="toggleZoomWindow(4)">[⤢ MAXIMIZE]</button>
+        </div>
+      </div>
+
+      <div class="bb-win-body">
+        <div class="chart-stage">
+          <div class="chart-overlay-bar">
+            <span class="ov-pill">AWS MUMBAI EMS (4.28ms) → DC OMS → TILTGUARD (1.93µs) → NSE/MCX COLO (1.45ms)</span>
+            <span class="ov-pill" style="color:var(--bb-amber);" id="w4-obi-hud">OBI_5: +0.214 • VPIN: 0.648</span>
+          </div>
+          <canvas id="canvas-w4" class="quant-canvas" height="195"></canvas>
+        </div>
+
+        <div class="param-box">
+          <div class="slider-line">
+            <div class="sl-top">
+              <span>PARENT ORDER QUANTITY: <strong class="c-amber" id="w4-lots-lbl">28 LOTS (2,100 QTY)</strong></span>
+              <span>FREEZE LIMIT: <strong>18 LOTS</strong> • IMPACT SAVED: <strong class="c-green" id="w4-saved-lbl">₹3,318 (14.6 bps)</strong></span>
+            </div>
+            <input type="range" id="w4-lot-slider" class="bb-slider" min="1" max="60" value="28" oninput="updateEmsSlices()" />
+          </div>
+        </div>
+
+        <div class="quant-table-scroll">
+          <table class="q-table">
+            <thead>
+              <tr>
+                <th>CHILD SLICE</th>
+                <th>LOTS</th>
+                <th>QTY</th>
+                <th>PEGGED LIMIT</th>
+                <th>POISSON JITTER</th>
+                <th>EMS ROUTING POLICY</th>
+              </tr>
+            </thead>
+            <tbody id="w4-slices-tbody"></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===================================================================== -->
+  <!-- BOTTOM DECK: LIVE EMSX ORDER BLOTTER + 5-LANGUAGE POLYGLOT INSPECTOR  -->
+  <!-- ===================================================================== -->
+  <section class="bottom-deck">
+    <!-- LEFT: LIVE DAY-TRADER EMSX ORDER & EXECUTION BLOTTER -->
+    <div class="bb-window">
+      <div class="bb-win-bar">
+        <div class="bb-win-title">
+          <span class="win-code">EMSX // BLOTTER</span>
+          <span class="win-label">Live Execution Blotter (WebMCP Baskets, Iceberg Slices &amp; TiltGuard Audits)</span>
+        </div>
+        <span class="c-green" style="font-size:10px; font-weight:700;" id="blotter-count-badge">LIVE ORDERS: 6</span>
+      </div>
+      <div class="bb-win-body">
+        <div class="quant-table-scroll" style="max-height:220px;">
+          <table class="q-table">
+            <thead>
+              <tr>
+                <th>TIME</th>
+                <th>ORDER ID</th>
+                <th>SOURCE</th>
+                <th>INSTRUMENT / LEG</th>
+                <th>SIDE / LOTS</th>
+                <th>FILL / LIMIT</th>
+                <th>LATENCY</th>
+                <th>RMS / EMS STATUS</th>
+              </tr>
+            </thead>
+            <tbody id="live-blotter-tbody"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT: 5-LANGUAGE POLYGLOT SOURCE ARCHITECTURE INSPECTOR -->
+    <div class="bb-window">
+      <div class="bb-win-bar">
+        <div class="bb-win-title">
+          <span class="win-code">SRC // POLYGLOT</span>
+          <span class="win-label">Production Polyglot Stack (Rust • Go • ScyllaDB CQL • TS WebMCP • Python)</span>
+        </div>
+        <div class="bb-win-tools" id="poly-tabs">
+          <button class="win-btn active" onclick="selectPolyTab('rust', this)">RUST (lib.rs)</button>
+          <button class="win-btn" onclick="selectPolyTab('go', this)">GO (ems_router.go)</button>
+          <button class="win-btn" onclick="selectPolyTab('scylla', this)">SCYLLADB (schema.cql)</button>
+          <button class="win-btn" onclick="selectPolyTab('ts', this)">TS (webmcp_sdk.ts)</button>
+          <button class="win-btn" onclick="selectPolyTab('python', this)">PYTHON (kyro_engine.py)</button>
+        </div>
+      </div>
+      <div class="bb-win-body">
+        <pre class="code-terminal-pre" id="poly-code-viewer"></pre>
+      </div>
+    </div>
+  </section>
+
+  <script src="data_bundle.js"></script>
+  <script>
+    // =========================================================================
+    // BLOOMBERG QUANT TERMINAL ENGINE — HIDPI CANVASES + INTERACTIVE WEBMCP
+    // =========================================================================
+    const DATA = window.SAHI_DATA || {};
+    let currentInst = 'NIFTY50';
+    let streamActive = true;
+    let regimeGateActive = true;
+    let win1Mode = 'split';
+    let frameTick = 0;
+    let candleOffset = 0;
+
+    // 3D Surface interactive orientation
+    let yaw3D = -0.60, pitch3D = 0.50, dragging3D = false, prevX = 0, prevY = 0;
+
+    // Payoff Hover Crosshair state
+    let payoffHoverX = null;
+
+    // WebMCP Interactive Strategy State
+    const STRUCTURES = [
+      {
+        id: 'bear_put',
+        name: 'BEAR PUT DEBIT SPREAD',
+        tool: 'sahi.kyro.compile_strategy',
+        legs: [
+          { seq: '0.00ms [1st]', side: 'BUY', strikeOffset: 0, type: 'PE', ratio: 1, basePrem: 154.20, delta: -0.48, role: 'LONG HEDGE (PROTECTIVE)' },
+          { seq: '+6.80ms [2nd]', side: 'SELL', strikeOffset: -2, type: 'PE', ratio: 1, basePrem: 96.40, delta: -0.31, role: 'SHORT PREMIUM LEG' }
+        ]
+      },
+      {
+        id: 'bull_call',
+        name: 'BULL CALL DEBIT SPREAD',
+        tool: 'sahi.kyro.compile_strategy',
+        legs: [
+          { seq: '0.00ms [1st]', side: 'BUY', strikeOffset: 0, type: 'CE', ratio: 1, basePrem: 162.50, delta: 0.51, role: 'LONG HEDGE (PROTECTIVE)' },
+          { seq: '+6.80ms [2nd]', side: 'SELL', strikeOffset: 2, type: 'CE', ratio: 1, basePrem: 98.10, delta: 0.33, role: 'SHORT PREMIUM LEG' }
+        ]
+      },
+      {
+        id: 'iron_condor',
+        name: 'DELTA-NEUTRAL IRON CONDOR',
+        tool: 'sahi.kyro.compile_strategy',
+        legs: [
+          { seq: '0.00ms [1st]', side: 'BUY', strikeOffset: -3, type: 'PE', ratio: 1, basePrem: 52.00, delta: -0.16, role: 'LONG PUT WING (HEDGE)' },
+          { seq: '0.15ms [2nd]', side: 'BUY', strikeOffset: 3, type: 'CE', ratio: 1, basePrem: 54.50, delta: 0.17, role: 'LONG CALL WING (HEDGE)' },
+          { seq: '+6.80ms [3rd]', side: 'SELL', strikeOffset: -1, type: 'PE', ratio: 1, basePrem: 112.00, delta: -0.34, role: 'SHORT PUT BODY' },
+          { seq: '+6.95ms [4th]', side: 'SELL', strikeOffset: 1, type: 'CE', ratio: 1, basePrem: 115.50, delta: 0.35, role: 'SHORT CALL BODY' }
+        ]
+      },
+      {
+        id: 'straddle',
+        name: 'LONG VOLATILITY STRADDLE',
+        tool: 'sahi.kyro.compile_strategy',
+        legs: [
+          { seq: '0.00ms [1st]', side: 'BUY', strikeOffset: 0, type: 'CE', ratio: 1, basePrem: 158.00, delta: 0.50, role: 'ATM CALL CONVEXITY' },
+          { seq: '0.12ms [2nd]', side: 'BUY', strikeOffset: 0, type: 'PE', ratio: 1, basePrem: 152.00, delta: -0.50, role: 'ATM PUT CONVEXITY' }
+        ]
+      }
+    ];
+
+    let activeStructIdx = 0;
+    let activeCatalystIdx = 0;
+    let customStrikeShift = 0;
+
+    // TiltGuard ECG State
+    let tiltScore = 14;
+    let ecgWave = new Array(150).fill(0);
+
+    // 3-Hop Sonar Packets
+    let sonarPackets = [];
+    for (let i = 0; i < 15; i++) {
+      sonarPackets.push({
+        p: Math.random(),
+        v: 0.009 + Math.random() * 0.008,
+        lane: i % 3,
+        col: i % 3 === 0 ? '#00E676' : (i % 3 === 1 ? '#FF9900' : '#00D2FF')
+      });
+    }
+
+    // Live EMSX Order Blotter Entries
+    let blotterOrders = [
+      { time: '14:21:08.412', id: 'KYRO-9041', src: 'WebMCP', leg: 'NIFTY 22750 PE (HEDGE)', side: 'BUY 4L', px: '₹154.20', lat: '1.88µs', status: 'FILLED [0.00ms HEDGE-1ST]' },
+      { time: '14:21:08.419', id: 'KYRO-9042', src: 'WebMCP', leg: 'NIFTY 22650 PE (SHORT)', side: 'SELL 4L', px: '₹96.40', lat: '1.91µs', status: 'FILLED [+6.80ms SPAN-75%]' },
+      { time: '14:20:51.104', id: 'EMS-8830', src: 'ICEBERG', leg: 'BANKNIFTY 51700 CE #1', side: 'BUY 8L', px: '₹312.45', lat: '5.68ms', status: 'MID-PEG SLICE 1/4' },
+      { time: '14:20:44.009', id: 'RMS-7712', src: 'TILTGUARD', leg: 'NIFTY 22800 CE', side: 'BUY 1L', px: '₹118.00', lat: '1.93µs', status: 'YELLOW CARD: 1-LOT CAP' }
+    ];
+
+    // Helper for HiDPI Canvas sizing
+    function setupHiDPICanvas(canvas, logicalHeight) {
+      const dpr = window.devicePixelRatio || 1;
+      const logicalWidth = Math.max(320, canvas.parentElement.clientWidth || 600);
+      if (canvas.width !== Math.floor(logicalWidth * dpr) || canvas.height !== Math.floor(logicalHeight * dpr)) {
+        canvas.width = Math.floor(logicalWidth * dpr);
+        canvas.height = Math.floor(logicalHeight * dpr);
+        canvas.style.height = logicalHeight + 'px';
+      }
+      const ctx = canvas.getContext('2d');
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      return { ctx, W: logicalWidth, H: logicalHeight };
+    }
+
+    function addBlotterOrder(src, leg, side, px, lat, status) {
+      const now = new Date();
+      const t = now.toTimeString().split(' ')[0] + '.' + String(now.getMilliseconds()).padStart(3, '0');
+      const id = 'KYRO-' + Math.floor(1000 + Math.random() * 8999);
+      blotterOrders.unshift({ time: t, id, src, leg, side, px, lat, status });
+      if (blotterOrders.length > 25) blotterOrders.pop();
+      renderBlotter();
+    }
+
+    function renderBlotter() {
+      document.getElementById('blotter-count-badge').textContent = `LIVE ORDERS: ${blotterOrders.length}`;
+      document.getElementById('live-blotter-tbody').innerHTML = blotterOrders.map(o => {
+        const isRed = o.status.includes('REJECT') || o.status.includes('LOCK');
+        const isAmber = o.status.includes('YELLOW') || o.status.includes('SLICE');
+        const cls = isRed ? 'c-red' : (isAmber ? 'c-amber' : 'c-green');
+        return `<tr>
+          <td>${o.time}</td>
+          <td class="c-amber"><strong>${o.id}</strong></td>
+          <td class="c-cyan">${o.src}</td>
+          <td><strong>${o.leg}</strong></td>
+          <td>${o.side}</td>
+          <td>${o.px}</td>
+          <td>${o.lat}</td>
+          <td class="${cls}"><strong>${o.status}</strong></td>
+        </tr>`;
+      }).join('');
+    }
+
+    // =========================================================================
+    // NAVIGATION & VIEW MODES (F1-F5)
+    // =========================================================================
+    function switchViewMode(mode) {
+      document.querySelectorAll('.bb-fkey').forEach(b => b.classList.remove('active'));
+      const fk = document.getElementById('fk-' + mode);
+      if (fk) fk.classList.add('active');
+
+      const grid = document.getElementById('launchpad-grid');
+      document.querySelectorAll('.bb-window').forEach(w => w.classList.remove('zoomed-win'));
+
+      if (mode === 0) {
+        grid.classList.remove('zoom-mode');
+      } else {
+        grid.classList.add('zoom-mode');
+        document.getElementById('win-' + mode).classList.add('zoomed-win');
+      }
+      // Redraw all canvases immediately at new layout width
+      requestAnimationFrame(() => {
+        drawWin1Canvas();
+        drawWin2PayoffCanvas();
+        drawWin3EcgCanvas();
+        drawWin4SonarCanvas();
+      });
+    }
+
+    function toggleZoomWindow(winIdx) {
+      const grid = document.getElementById('launchpad-grid');
+      const win = document.getElementById('win-' + winIdx);
+      const alreadyZoomed = grid.classList.contains('zoom-mode') && win.classList.contains('zoomed-win');
+      switchViewMode(alreadyZoomed ? 0 : winIdx);
+    }
+
+    function toggleStream() {
+      streamActive = !streamActive;
+      const btn = document.getElementById('btn-stream-toggle');
+      btn.textContent = streamActive ? '● LIVE 60FPS TAPE: ON' : '❚❚ LIVE TAPE: PAUSED';
+      btn.className = streamActive ? 'hw-btn green' : 'hw-btn amber';
+    }
+
+    function selectInstrument(instKey, cardEl) {
+      currentInst = instKey;
+      document.querySelectorAll('#ticker-deck .quant-ticker-card').forEach(c => c.classList.remove('active'));
+      if (cardEl) cardEl.classList.add('active');
+      updateWin1Table();
+      recalcWebMcpPayoff();
+      updateEmsSlices();
+    }
+
+    // =========================================================================
+    // WINDOW 01: SCALPER 3.0 — SPOT/GEX & 3D SURFACE
+    // =========================================================================
+    function setWin1Mode(m) {
+      win1Mode = m;
+      document.getElementById('w1-btn-split').classList.toggle('active', m === 'split');
+      document.getElementById('w1-btn-3d').classList.toggle('active', m === '3d');
+      drawWin1Canvas();
+    }
+
+    function toggleRegimeGate() {
+      regimeGateActive = !regimeGateActive;
+      const btn = document.getElementById('w1-btn-gate');
+      btn.textContent = regimeGateActive ? 'REGIME ML GATE: ON' : 'REGIME ML GATE: OFF';
+      btn.classList.toggle('amber-active', regimeGateActive);
+      updateWin1Table();
+    }
+
+    function updateWin1Table() {
+      const instMap = (DATA.optionChains && DATA.optionChains.instruments) || {};
+      const inst = instMap[currentInst] || instMap.NIFTY50 || {};
+      const chain = inst.chain || [];
+      const spot = inst.spot_price || 22716.20;
+      const flip = inst.zero_gamma_flip || 22750.00;
+      const netGex = inst.total_net_gex_cr || -1305.20;
+
+      document.getElementById('w1-spot').textContent = spot.toLocaleString('en-IN', { minimumFractionDigits: 2 });
+      document.getElementById('w1-maxpain').textContent = `MAX PAIN: ${inst.max_pain_strike || 22750} | LOT: ${inst.lot_size || 75}`;
+      document.getElementById('w1-flip').textContent = flip.toLocaleString('en-IN', { minimumFractionDigits: 2 });
+      document.getElementById('w1-netgex').textContent = `NET GEX: ${netGex >= 0 ? '+' : ''}${netGex.toFixed(1)} Cr`;
+      document.getElementById('w1-ov-left').textContent = `${currentInst} • S* ZERO-GAMMA FLIP: ${flip.toFixed(1)} • DRAG 3D MESH TO ROTATE`;
+
+      const isPos = netGex >= 0;
+      document.getElementById('w1-ov-right').textContent = isPos
+        ? `REGIME: +GEX PINNING (+${netGex.toFixed(0)} Cr) → NADARAYA-WATSON KERNEL`
+        : `REGIME: -GEX BREAKOUT (${netGex.toFixed(0)} Cr) → LORENTZIAN 6D k-NN`;
+      document.getElementById('w1-ml').textContent = regimeGateActive
+        ? (isPos ? 'NADARAYA-WATSON KERNEL' : 'LORENTZIAN k-NN (6D)')
+        : 'UNGATED RAW (WHIPSAW)';
+      document.getElementById('w1-sharpe').textContent = regimeGateActive ? '3.18 / 68.4%' : '1.74 / 51.2%';
+      document.getElementById('w1-sharpe').className = 'kb-val ' + (regimeGateActive ? 'c-green' : 'c-red');
+
+      const mid = chain.slice(Math.max(0, Math.floor(chain.length / 2) - 7), Math.floor(chain.length / 2) + 7);
+      document.getElementById('w1-option-tbody').innerHTML = mid.map(r => {
+        const isFlip = Math.abs(r.strike - flip) <= (currentInst === 'NIFTY50' ? 25 : 100);
+        const g = r.net_gex_cr || 0;
+        const ce = r.call || {};
+        const pe = r.put || {};
+        return `<tr class="${isFlip ? 'atm-row' : ''}">
+          <td><strong>${r.strike}</strong> ${isFlip ? '<span class="c-amber">[S*]</span>' : ''}</td>
+          <td class="${g >= 0 ? 'c-green' : 'c-red'}"><strong>${g >= 0 ? '+' : ''}${g.toFixed(2)} Cr</strong></td>
+          <td>₹${(ce.ltp || 0).toFixed(2)}</td>
+          <td>₹${(pe.ltp || 0).toFixed(2)}</td>
+          <td>${(ce.delta || 0.5).toFixed(3)}</td>
+          <td>${(ce.gamma || 0).toFixed(5)}</td>
+          <td class="c-cyan">${(ce.vanna || 0).toFixed(4)}</td>
+          <td class="c-amber">${(ce.charm || 0).toFixed(4)}</td>
+        </tr>`;
+      }).join('');
+    }
+
+    function drawWin1Canvas() {
+      const canvas = document.getElementById('canvas-w1');
+      if (!canvas) return;
+      const { ctx, W, H } = setupHiDPICanvas(canvas, 275);
+      ctx.clearRect(0, 0, W, H);
+
+      const instMap = (DATA.optionChains && DATA.optionChains.instruments) || {};
+      const inst = instMap[currentInst] || instMap.NIFTY50 || {};
+      const ticks = (DATA.ticksByInstrument && DATA.ticksByInstrument[currentInst]) || [];
+      const chain = inst.chain || [];
+      const flip = inst.zero_gamma_flip || 22750;
+
+      // Grid
+      ctx.strokeStyle = '#111822';
+      ctx.lineWidth = 1;
+      for (let x = 0; x < W; x += 48) { ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, H); ctx.stroke(); }
+      for (let y = 0; y < H; y += 38) { ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(W, y); ctx.stroke(); }
+
+      const splitX = win1Mode === 'split' ? Math.floor(W * 0.52) : 0;
+
+      if (win1Mode === 'split' && ticks.length > 0) {
+        const winSize = 40;
+        const start = candleOffset % Math.max(1, ticks.length - winSize);
+        const bars = ticks.slice(start, start + winSize);
+        let minP = Infinity, maxP = -Infinity;
+        bars.forEach(b => { if (b.l < minP) minP = b.l; if (b.h > maxP) maxP = b.h; });
+        const pad = (maxP - minP) * 0.15 || 10;
+        minP -= pad; maxP += pad;
+
+        const yOf = p => H - 38 - ((p - minP) / (maxP - minP)) * (H - 72);
+        const stepX = (splitX - 20) / bars.length;
+
+        // Nadaraya-Watson Envelope
+        ctx.beginPath();
+        ctx.strokeStyle = '#00D2FF';
+        ctx.lineWidth = 1.4;
+        bars.forEach((b, i) => {
+          const x = 10 + i * stepX + stepX * 0.5;
+          const y = yOf(b.vwap || b.c);
+          if (i === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
+        });
+        ctx.stroke();
+
+        bars.forEach((b, i) => {
+          const x = 10 + i * stepX;
+          const cx = x + stepX * 0.5;
+          const bull = b.c >= b.o;
+          ctx.strokeStyle = bull ? '#00E676' : '#FF2E54';
+          ctx.fillStyle = bull ? '#00E676' : '#FF2E54';
+          ctx.beginPath(); ctx.moveTo(cx, yOf(b.h)); ctx.lineTo(cx, yOf(b.l)); ctx.stroke();
+          const ty = yOf(Math.max(b.o, b.c));
+          const by = yOf(Math.min(b.o, b.c));
+          ctx.fillRect(x + 1, ty, Math.max(2.5, stepX - 2.5), Math.max(2, by - ty));
+
+          // Sub-candle Delta Tank footprint
+          const dh = Math.min(24, Math.abs(b.obi || 0.25) * 30);
+          ctx.fillStyle = (b.obi || 0) >= 0 ? 'rgba(0,230,118,0.4)' : 'rgba(255,46,84,0.4)';
+          ctx.fillRect(x + 1, H - 6 - dh, Math.max(2.5, stepX - 2.5), dh);
+        });
+
+        // Zero-Gamma Flip Line
+        const fy = Math.max(34, Math.min(H - 42, yOf(flip)));
+        ctx.strokeStyle = '#FF9900';
+        ctx.setLineDash([5, 4]);
+        ctx.beginPath(); ctx.moveTo(6, fy); ctx.lineTo(splitX - 6, fy); ctx.stroke();
+        ctx.setLineDash([]);
+        ctx.fillStyle = '#FF9900';
+        ctx.font = 'bold 10px JetBrains Mono';
+        ctx.fillText(`S* ZERO-GAMMA FLIP (${flip.toFixed(0)})`, 12, fy - 5);
+
+        ctx.strokeStyle = '#242E3E';
+        ctx.beginPath(); ctx.moveTo(splitX, 0); ctx.lineTo(splitX, H); ctx.stroke();
+      }
+
+      // 3D Isometric GEX & Vanna Surface
+      const cx3d = splitX + (W - splitX) * 0.5;
+      const cy3d = H * 0.57;
+      const sx = win1Mode === '3d' ? 18 : 11;
+      const sy = win1Mode === '3d' ? 14 : 9;
+
+      const midChain = chain.slice(Math.max(0, Math.floor(chain.length / 2) - 8), Math.floor(chain.length / 2) + 8);
+      const nS = midChain.length || 12;
+      const nT = 8;
+
+      function proj(ix, iy, iz) {
+        const x0 = (ix - nS / 2) * sx;
+        const y0 = (iy - nT / 2) * sy;
+        const cosY = Math.cos(yaw3D), sinY = Math.sin(yaw3D);
+        const x1 = x0 * cosY - y0 * sinY;
+        const y1 = x0 * sinY + y0 * cosY;
+        const cosP = Math.cos(pitch3D), sinP = Math.sin(pitch3D);
+        return { x: cx3d + x1, y: cy3d + y1 * cosP - iz * sinP };
+      }
+
+      const maxG = Math.max(...midChain.map(r => Math.abs(r.net_gex_cr || 50)), 50);
+      for (let t = 0; t < nT - 1; t++) {
+        for (let s = 0; s < nS - 1; s++) {
+          const g0 = ((midChain[s] && midChain[s].net_gex_cr) || 0) / maxG;
+          const g1 = ((midChain[s + 1] && midChain[s + 1].net_gex_cr) || 0) / maxG;
+          const w0 = Math.sin(frameTick * 0.04 + s * 0.4 + t * 0.5) * 5;
+          const w1 = Math.sin(frameTick * 0.04 + (s + 1) * 0.4 + (t + 1) * 0.5) * 5;
+
+          const p00 = proj(s, t, g0 * 48 * (1 - t * 0.07) + w0);
+          const p10 = proj(s + 1, t, g1 * 48 * (1 - t * 0.07) + w1);
+          const p11 = proj(s + 1, t + 1, g1 * 48 * (1 - (t + 1) * 0.07) + w1);
+          const p01 = proj(s, t + 1, g0 * 48 * (1 - (t + 1) * 0.07) + w0);
+
+          ctx.beginPath();
+          ctx.moveTo(p00.x, p00.y); ctx.lineTo(p10.x, p10.y);
+          ctx.lineTo(p11.x, p11.y); ctx.lineTo(p01.x, p01.y);
+          ctx.closePath();
+          ctx.fillStyle = g0 >= 0 ? 'rgba(0, 230, 118, 0.16)' : 'rgba(255, 46, 84, 0.18)';
+          ctx.strokeStyle = g0 >= 0 ? '#00E676' : '#FF2E54';
+          ctx.lineWidth = 0.9;
+          ctx.fill(); ctx.stroke();
+        }
+      }
+      ctx.fillStyle = '#9BA8BC';
+      ctx.font = '9.5px JetBrains Mono';
+      ctx.fillText('3D ISOMETRIC DEALER GEX × TENOR MESH (+GEX GREEN WALLS / -GEX RED)', splitX + 10, H - 8);
+    }
+
+    // =========================================================================
+    // WINDOW 02: CHROME WebMCP & INTERACTIVE MULTI-LEG COMPILER
+    // =========================================================================
+    function initWin2Catalysts() {
+      const list = (DATA.newsCatalysts || []).slice(0, 18);
+      const el = document.getElementById('w2-catalyst-list');
+      el.innerHTML = list.map((c, idx) => `
+        <div class="cat-row ${idx === activeCatalystIdx ? 'active' : ''}" onclick="pickCatalyst(${idx})">
+          <span class="cr-head">${c.headline}</span>
+          <span class="cr-tag">[${c.catalyst_category || 'NEWS'}]</span>
+        </div>
+      `).join('');
+    }
+
+    function pickCatalyst(idx) {
+      activeCatalystIdx = idx;
+      const list = DATA.newsCatalysts || [];
+      const item = list[idx];
+      if (item) {
+        const cat = (item.catalyst_category || '').toUpperCase();
+        if (cat.includes('ORDER') || cat.includes('BULL')) selectStrategyStructure(1);
+        else if (cat.includes('ANALYST') || cat.includes('MEET')) selectStrategyStructure(2);
+        else selectStrategyStructure(0);
+        document.getElementById('cmd-input').value =
+          `SAHI NEWS [${cat}]: "${item.headline.slice(0, 58)}..." -> COMPILE HEDGED BASKET`;
+      }
+      initWin2Catalysts();
+    }
+
+    function selectStrategyStructure(idx) {
+      activeStructIdx = idx;
+      customStrikeShift = 0;
+      for (let i = 0; i < 4; i++) {
+        const b = document.getElementById('st-' + i);
+        if (b) b.classList.toggle('active', i === idx);
+      }
+      recalcWebMcpPayoff();
+    }
+
+    function shiftStrikes(stepDir) {
+      customStrikeShift += stepDir;
+      recalcWebMcpPayoff();
+    }
+
+    function recalcWebMcpPayoff() {
+      const instMap = (DATA.optionChains && DATA.optionChains.instruments) || {};
+      const inst = instMap[currentInst] || instMap.NIFTY50 || {};
+      const spot = inst.spot_price || 22716.20;
+      const step = currentInst === 'NIFTY50' ? 50 : (currentInst === 'GOLD_MCX' ? 500 : 100);
+      const lotSize = inst.lot_size || 75;
+      const atmStrike = Math.round(spot / step) * step + customStrikeShift * step;
+
+      const lots = parseInt(document.getElementById('w2-lots-slider').value || '4', 10);
+      const dte = parseFloat(document.getElementById('w2-dte-slider').value || '4');
+      const ivShock = parseFloat(document.getElementById('w2-iv-slider').value || '0');
+
+      document.getElementById('w2-lots-val').textContent = `${lots} LOTS (${(lots * lotSize).toLocaleString('en-IN')} QTY)`;
+      document.getElementById('w2-dte-val').textContent = `${dte.toFixed(1)} DTE`;
+      document.getElementById('w2-iv-val').textContent = `${ivShock >= 0 ? '+' : ''}${ivShock.toFixed(1)}% IV`;
+
+      const st = STRUCTURES[activeStructIdx];
+      const compiledLegs = st.legs.map(l => {
+        const strike = atmStrike + l.strikeOffset * step;
+        const ivAdj = 1 + (ivShock * 0.018);
+        const ltp = Math.max(4.5, +(l.basePrem * ivAdj * (0.85 + dte * 0.035)).toFixed(2));
+        return {
+          ...l,
+          strike,
+          lots: lots * l.ratio,
+          ltp
+        };
+      });
+
+      // Render Interactive Legs Table with Strike +/- buttons
+      document.getElementById('w2-legs-tbody').innerHTML = compiledLegs.map(l => `
+        <tr>
+          <td class="c-amber"><strong>${l.seq}</strong></td>
+          <td class="${l.side === 'BUY' ? 'c-green' : 'c-red'}"><strong>${l.side}</strong></td>
+          <td>
+            <strong>${l.strike} ${l.type}</strong>
+            <button class="win-btn" style="padding:0 4px; margin-left:4px;" onclick="shiftStrikes(-1)">-</button>
+            <button class="win-btn" style="padding:0 4px;" onclick="shiftStrikes(1)">+</button>
+          </td>
+          <td>${l.lots}L (${l.lots * lotSize})</td>
+          <td>₹${l.ltp.toFixed(2)}</td>
+          <td class="c-cyan">${l.delta >= 0 ? '+' : ''}${l.delta.toFixed(2)}</td>
+          <td>${l.role}</td>
+        </tr>
+      `).join('');
+
+      const hedgedMargin = Math.round(lots * 7100);
+      const nakedMargin = Math.round(lots * 29200);
+      document.getElementById('w2-margin-hud').textContent =
+        `SPAN MARGIN: ₹${hedgedMargin.toLocaleString('en-IN')} (SAVED 75.7% VS ₹${nakedMargin.toLocaleString('en-IN')} NAKED)`;
+
+      // Build Chrome WebMCP (navigator.modelContext) JSON-RPC Tool Call Preview
+      const webmcpPayload = {
+        protocol: "chrome.webmcp.v1 (navigator.modelContext)",
+        origin_trial_host: "https://web.sahi.com",
+        tool_name: st.tool,
+        compile_latency_us: 1.19,
+        arguments: {
+          underlying: currentInst,
+          spot_reference: spot,
+          structure: st.name,
+          hedged_first_invariant: "t_exec(LONG_HEDGE)=0.00ms < t_exec(SHORT_LEG)=+6.80ms",
+          span_margin_inr: hedgedMargin,
+          sahi_brokerage_inr: compiledLegs.length * 10,
+          legs: compiledLegs.map(l => ({
+            seq: l.seq,
+            action: l.side,
+            contract: `${currentInst} ${l.strike} ${l.type}`,
+            lots: l.lots,
+            limit_price: l.ltp
+          }))
+        }
+      };
+      document.getElementById('w2-json-rpc').textContent = JSON.stringify(webmcpPayload, null, 2);
+
+      drawWin2PayoffCanvas(compiledLegs, spot, step, lotSize, dte, ivShock, st.name);
+    }
+
+    function computeOptionPayoffAtSpot(legs, s, lotSize, isT0, spotRef, dte, ivShock) {
+      let totalInr = 0;
+      legs.forEach(l => {
+        const intrinsic = l.type === 'CE' ? Math.max(0, s - l.strike) : Math.max(0, l.strike - s);
+        let theoVal = intrinsic;
+        if (isT0) {
+          const dist = Math.abs(s - l.strike) / Math.max(1, spotRef);
+          const timeExtrinsic = l.ltp * Math.exp(-dist * 18) * (dte / 12) * (1 + ivShock * 0.02);
+          theoVal = intrinsic + timeExtrinsic;
+        }
+        const legPnlPerUnit = l.side === 'BUY' ? (theoVal - l.ltp) : (l.ltp - theoVal);
+        totalInr += legPnlPerUnit * l.lots * lotSize;
+      });
+      // Deduct flat Rs 10/order Sahi brokerage
+      totalInr -= legs.length * 10;
+      return totalInr;
+    }
+
+    function drawWin2PayoffCanvas(compiledLegs, spot, step, lotSize, dte, ivShock, stName) {
+      const canvas = document.getElementById('canvas-w2');
+      if (!canvas) return;
+      if (!compiledLegs) {
+        recalcWebMcpPayoff();
+        return;
+      }
+      const { ctx, W, H } = setupHiDPICanvas(canvas, 210);
+      ctx.clearRect(0, 0, W, H);
+
+      // Grid
+      ctx.strokeStyle = '#111822';
+      ctx.lineWidth = 1;
+      for (let x = 45; x < W - 15; x += 55) { ctx.beginPath(); ctx.moveTo(x, 12); ctx.lineTo(x, H - 24); ctx.stroke(); }
+      for (let y = 20; y < H - 24; y += 34) { ctx.beginPath(); ctx.moveTo(45, y); ctx.lineTo(W - 15, y); ctx.stroke(); }
+
+      const minS = spot - step * 5.5;
+      const maxS = spot + step * 5.5;
+      const N = 120;
+      const expPts = [];
+      const t0Pts = [];
+      let minPnl = -5000, maxPnl = 5000;
+
+      for (let i = 0; i <= N; i++) {
+        const s = minS + (i / N) * (maxS - minS);
+        const pExp = computeOptionPayoffAtSpot(compiledLegs, s, lotSize, false, spot, dte, ivShock);
+        const pT0 = computeOptionPayoffAtSpot(compiledLegs, s, lotSize, true, spot, dte, ivShock);
+        expPts.push({ s, pnl: pExp });
+        t0Pts.push({ s, pnl: pT0 });
+        if (pExp < minPnl) minPnl = pExp;
+        if (pExp > maxPnl) maxPnl = pExp;
+        if (pT0 < minPnl) minPnl = pT0;
+        if (pT0 > maxPnl) maxPnl = pT0;
+      }
+
+      const pnlSpan = Math.max(2000, maxPnl - minPnl) * 1.2;
+      minPnl -= pnlSpan * 0.1;
+      maxPnl += pnlSpan * 0.1;
+
+      const xOf = s => 52 + ((s - minS) / (maxS - minS)) * (W - 72);
+      const yOf = pnl => (H - 28) - ((pnl - minPnl) / (maxPnl - minPnl)) * (H - 58);
+      const zeroY = Math.max(26, Math.min(H - 28, yOf(0)));
+
+      // Zero P&L Breakeven Horizontal Line
+      ctx.strokeStyle = '#3A4963';
+      ctx.lineWidth = 1;
+      ctx.setLineDash([4, 4]);
+      ctx.beginPath(); ctx.moveTo(52, zeroY); ctx.lineTo(W - 20, zeroY); ctx.stroke();
+      ctx.setLineDash([]);
+
+      // Spot Reference Vertical Line
+      const spotX = xOf(spot);
+      ctx.strokeStyle = '#FF9900';
+      ctx.setLineDash([3, 3]);
+      ctx.beginPath(); ctx.moveTo(spotX, 22); ctx.lineTo(spotX, H - 26); ctx.stroke();
+      ctx.setLineDash([]);
+
+      // Shaded Profit / Loss Fill under Expiry Curve
+      ctx.beginPath();
+      expPts.forEach((pt, idx) => {
+        const x = xOf(pt.s), y = yOf(pt.pnl);
+        if (idx === 0) ctx.moveTo(x, zeroY);
+        ctx.lineTo(x, y);
+      });
+      ctx.lineTo(xOf(maxS), zeroY);
+      ctx.closePath();
+      ctx.fillStyle = 'rgba(0, 230, 118, 0.10)';
+      ctx.fill();
+
+      // T+0 Instantaneous Greek Curve (Dashed Cyan)
+      ctx.beginPath();
+      ctx.strokeStyle = '#00D2FF';
+      ctx.lineWidth = 1.6;
+      ctx.setLineDash([5, 3]);
+      t0Pts.forEach((pt, idx) => {
+        const x = xOf(pt.s), y = yOf(pt.pnl);
+        if (idx === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
+      });
+      ctx.stroke();
+      ctx.setLineDash([]);
+
+      // Expiry Payoff Curve (Crisp 2.5px Green/Red segmented)
+      for (let i = 0; i < expPts.length - 1; i++) {
+        const p0 = expPts[i], p1 = expPts[i + 1];
+        ctx.beginPath();
+        ctx.moveTo(xOf(p0.s), yOf(p0.pnl));
+        ctx.lineTo(xOf(p1.s), yOf(p1.pnl));
+        ctx.strokeStyle = (p0.pnl + p1.pnl) >= 0 ? '#00E676' : '#FF2E54';
+        ctx.lineWidth = 2.4;
+        ctx.stroke();
+      }
+
+      // Y-Axis Labels (INR)
+      ctx.fillStyle = '#9BA8BC';
+      ctx.font = '9.5px JetBrains Mono';
+      ctx.fillText(`+₹${Math.round(maxPnl).toLocaleString('en-IN')}`, 4, 34);
+      ctx.fillText('₹0 BEP', 6, zeroY + 3);
+      ctx.fillText(`₹${Math.round(minPnl).toLocaleString('en-IN')}`, 4, H - 30);
+
+      // X-Axis Strike Labels
+      for (let k = -4; k <= 4; k += 2) {
+        const stStrike = Math.round(spot / step) * step + k * step;
+        const sx = xOf(stStrike);
+        if (sx > 55 && sx < W - 35) {
+          ctx.fillStyle = k === 0 ? '#FF9900' : '#9BA8BC';
+          ctx.fillText(String(stStrike), sx - 16, H - 10);
+        }
+      }
+
+      // Interactive Hover Crosshair Inspection
+      if (payoffHoverX !== null && payoffHoverX >= 52 && payoffHoverX <= W - 20) {
+        const hoverSpot = minS + ((payoffHoverX - 52) / (W - 72)) * (maxS - minS);
+        const hExp = computeOptionPayoffAtSpot(compiledLegs, hoverSpot, lotSize, false, spot, dte, ivShock);
+        const hT0 = computeOptionPayoffAtSpot(compiledLegs, hoverSpot, lotSize, true, spot, dte, ivShock);
+        const hy = yOf(hExp);
+
+        ctx.strokeStyle = '#F0F4F8';
+        ctx.lineWidth = 1;
+        ctx.beginPath(); ctx.moveTo(payoffHoverX, 20); ctx.lineTo(payoffHoverX, H - 26); ctx.stroke();
+        ctx.fillStyle = hExp >= 0 ? '#00E676' : '#FF2E54';
+        ctx.beginPath(); ctx.arc(payoffHoverX, hy, 4.5, 0, Math.PI * 2); ctx.fill();
+
+        document.getElementById('w2-payoff-hud').textContent =
+          `STRIKE/SPOT: ${hoverSpot.toFixed(1)} | EXPIRY P&L: ${hExp >= 0 ? '+' : ''}₹${Math.round(hExp).toLocaleString('en-IN')} | T+0 P&L: ${hT0 >= 0 ? '+' : ''}₹${Math.round(hT0).toLocaleString('en-IN')}`;
+      } else {
+        document.getElementById('w2-payoff-hud').textContent =
+          `${stName} • SOLID: EXPIRY PAYOFF • DASHED CYAN: T+0 GREEK CURVE (HOVER TO INSPECT)`;
+      }
+    }
+
+    async function executeWebMcpBasketLive() {
+      const st = STRUCTURES[activeStructIdx];
+      const lots = parseInt(document.getElementById('w2-lots-slider').value || '4', 10);
+      try {
+        const res = await fetch('/api/v1/kyro/compile', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            prompt: st.name,
+            underlying: currentInst,
+            spot: 22716.20,
+            lot_size: 75,
+            max_loss_budget_inr: 15000
+          })
+        });
+        await res.json();
+      } catch (e) {}
+
+      // Add the sequenced legs into the live EMSX Order Blotter!
+      addBlotterOrder('WebMCP', `${currentInst} LONG HEDGE LEG`, `BUY ${lots}L`, 'MKT-PEG', '1.18µs', 'FILLED [0.00ms HEDGE-1ST]');
+      addBlotterOrder('WebMCP', `${currentInst} SHORT PREMIUM LEG`, `SELL ${lots}L`, 'MKT-PEG', '1.24µs', 'FILLED [+6.80ms SPAN-75%]');
+      fireEmsBurst();
+    }
+
+    function runCommandLineStrategy() {
+      const v = document.getElementById('cmd-input').value.toUpperCase();
+      if (v.includes('CONDOR')) selectStrategyStructure(2);
+      else if (v.includes('BULL') || v.includes('CALL')) selectStrategyStructure(1);
+      else if (v.includes('STRADDLE')) selectStrategyStructure(3);
+      else selectStrategyStructure(0);
+      executeWebMcpBasketLive();
+    }
+
+    // =========================================================================
+    // WINDOW 03: TILTGUARD™ 1.93µs RMS & 60FPS ECG
+    // =========================================================================
+    function initWin3Sessions() {
+      const list = (DATA.behavioralSessions || []).slice(0, 12);
+      document.getElementById('w3-sessions-tbody').innerHTML = list.map(s => `
+        <tr>
+          <td class="c-amber"><strong>${s.session_id}</strong></td>
+          <td>${s.archetype}</td>
+          <td>${s.sl_drag_count}x</td>
+          <td>${Number(s.post_loss_lot_multiplier || 1).toFixed(2)}x</td>
+          <td class="${s.composite_tilt_score >= 75 ? 'c-red' : (s.composite_tilt_score >= 50 ? 'c-amber' : 'c-green')}">
+            <strong>${s.composite_tilt_score}/100</strong>
+          </td>
+          <td>${s.tiltguard_intervention}</td>
+        </tr>
+      `).join('');
+    }
+
+    function triggerTiltEvent(type) {
+      if (type === 'RESET') {
+        tiltScore = 14;
+        addBlotterOrder('TILTGUARD', `${currentInst} SESSION RESET`, 'SYSTEM', '--', '1.10µs', 'GREEN: NORMAL FLOW RESTORED');
+      } else if (type === 'SL_DRAG') {
+        tiltScore = Math.min(100, tiltScore + 24);
+        addBlotterOrder('TILTGUARD', `${currentInst} ON-CHART SL DRAGGED`, 'MODIFY', 'SL LOWERED', '1.89µs', `TILT SCORE -> ${tiltScore}/100`);
+      } else if (type === 'MARTINGALE') {
+        tiltScore = Math.min(100, tiltScore + 32);
+        addBlotterOrder('TILTGUARD', `${currentInst} 2.5x REVENGE SPIKE`, 'BUY 25L', 'CAP -> 1L', '1.93µs', 'YELLOW CARD: 1-LOT GOVERNOR');
+      } else if (type === 'TAMPER') {
+        tiltScore = Math.min(100, tiltScore + 28);
+        addBlotterOrder('TILTGUARD', `P&L PROTECT REMOVE ATTEMPT`, 'TAMPER', 'BLOCKED', '1.95µs', 'RED CARD: 15-MIN HMAC LOCK');
+      }
+
+      for (let i = 0; i < 6; i++) {
+        ecgWave.push((i % 2 === 0 ? 1 : -1) * (0.45 + tiltScore / 110));
+        ecgWave.shift();
+      }
+
+      const scEl = document.getElementById('w3-score');
+      const polEl = document.getElementById('w3-policy');
+      const bitEl = document.getElementById('w3-bitmask');
+      const hudEl = document.getElementById('w3-ecg-hud');
+
+      scEl.textContent = `${tiltScore} / 100`;
+      if (tiltScore >= 82) {
+        scEl.className = 'kb-val c-red';
+        polEl.textContent = 'RED CARD: 15-MIN LOCK';
+        polEl.className = 'kb-val c-red';
+        bitEl.textContent = 'BITMASK: 0x27 (LOCKED)';
+        hudEl.textContent = `BIOMETRIC TILT ECG: ${tiltScore}/100 [RED CARD: HMAC COOLING-OFF LOCK]`;
+      } else if (tiltScore >= 52) {
+        scEl.className = 'kb-val c-amber';
+        polEl.textContent = 'YELLOW: 1-LOT GOVERNOR';
+        polEl.className = 'kb-val c-amber';
+        bitEl.textContent = 'BITMASK: 0x0B (1-LOT CAP)';
+        hudEl.textContent = `BIOMETRIC TILT ECG: ${tiltScore}/100 [YELLOW CARD: 1-LOT RECOVERY GOVERNOR]`;
+      } else {
+        scEl.className = 'kb-val c-green';
+        polEl.textContent = 'APPROVED (MAX 10 LOTS)';
+        polEl.className = 'kb-val c-cyan';
+        bitEl.textContent = 'BITMASK: 0x03 (ACTIVE)';
+        hudEl.textContent = `BIOMETRIC TILT ECG: ${tiltScore}/100 [GREEN: NORMAL EXECUTION]`;
+      }
+    }
+
+    function drawWin3EcgCanvas() {
+      const canvas = document.getElementById('canvas-w3');
+      if (!canvas) return;
+      const { ctx, W, H } = setupHiDPICanvas(canvas, 195);
+      ctx.clearRect(0, 0, W, H);
+
+      ctx.strokeStyle = '#111822';
+      for (let x = 0; x < W; x += 42) { ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, H); ctx.stroke(); }
+      for (let y = 0; y < H; y += 34) { ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(W, y); ctx.stroke(); }
+
+      if (streamActive) {
+        const ph = frameTick % 36;
+        const amp = 0.25 + (tiltScore / 100) * 0.75;
+        let v = 0;
+        if (ph === 10) v = 0.22 * amp;
+        else if (ph === 14) v = -0.35 * amp;
+        else if (ph === 16) v = 1.0 * amp;
+        else if (ph === 18) v = -0.55 * amp;
+        else if (ph === 24) v = 0.28 * amp;
+        else v = (Math.random() - 0.5) * 0.07 * amp;
+        ecgWave.push(v);
+        if (ecgWave.length > 150) ecgWave.shift();
+      }
+
+      const midY = H * 0.54;
+      ctx.beginPath();
+      ecgWave.forEach((v, i) => {
+        const x = 12 + (i / (ecgWave.length - 1)) * (W - 24);
+        const y = midY - v * 62;
+        if (i === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
+      });
+      ctx.strokeStyle = tiltScore >= 82 ? '#FF2E54' : (tiltScore >= 52 ? '#FF9900' : '#00E676');
+      ctx.lineWidth = 2.2;
+      ctx.stroke();
+
+      ctx.fillStyle = '#9BA8BC';
+      ctx.font = '9.5px JetBrains Mono';
+      ctx.fillText('60FPS PRE-TRADE BEHAVIORAL ECG • CLOSES /faq/p-and-l-protect TAMPER LOOPHOLE', 12, H - 8);
+    }
+
+    // =========================================================================
+    // WINDOW 04: MUMBAI 3-HOP SONAR & MICRO-ICEBERG SLICER
+    // =========================================================================
+    function fireEmsBurst() {
+      for (let i = 0; i < 8; i++) {
+        sonarPackets.push({ p: 0, v: 0.015 + Math.random() * 0.01, lane: i % 3, col: '#FF9900' });
+      }
+      if (sonarPackets.length > 30) sonarPackets.splice(0, 8);
+    }
+
+    function updateEmsSlices() {
+      const lots = parseInt(document.getElementById('w4-lot-slider').value || '28', 10);
+      const instMap = (DATA.optionChains && DATA.optionChains.instruments) || {};
+      const inst = instMap[currentInst] || instMap.NIFTY50 || {};
+      const lotSize = inst.lot_size || 75;
+      const savedInr = Math.round(lots * 118.5);
+      const savedBps = (4.2 + Math.min(14.5, lots * 0.36)).toFixed(1);
+
+      document.getElementById('w4-lots-lbl').textContent = `${lots} LOTS (${(lots * lotSize).toLocaleString('en-IN')} QTY)`;
+      document.getElementById('w4-saved-lbl').textContent = `₹${savedInr.toLocaleString('en-IN')} (${savedBps} bps)`;
+
+      let rem = lots, idx = 1, delay = 0;
+      const rows = [];
+      while (rem > 0) {
+        const cLots = Math.min(rem, 8);
+        rows.push(`
+          <tr>
+            <td class="c-amber"><strong>SLICE #${idx}</strong></td>
+            <td><strong>${cLots} Lots</strong></td>
+            <td>${(cLots * lotSize).toLocaleString('en-IN')}</td>
+            <td class="c-green">₹148.45 (MID-PEG)</td>
+            <td>+${delay.toFixed(1)} ms</td>
+            <td>POISSON_MICRO_ICEBERG</td>
+          </tr>
+        `);
+        rem -= cLots; idx++; delay += 4.3;
+      }
+      document.getElementById('w4-slices-tbody').innerHTML = rows.join('');
+    }
+
+    function drawWin4SonarCanvas() {
+      const canvas = document.getElementById('canvas-w4');
+      if (!canvas) return;
+      const { ctx, W, H } = setupHiDPICanvas(canvas, 195);
+      ctx.clearRect(0, 0, W, H);
+
+      ctx.strokeStyle = '#111822';
+      for (let x = 0; x < W; x += 44) { ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, H); ctx.stroke(); }
+
+      const nodes = [
+        { x: W * 0.13, y: H * 0.52, t: 'AWS MUMBAI EMS', s: 'OBI_5 + VPIN' },
+        { x: W * 0.40, y: H * 0.52, t: 'PHYSICAL DC OMS', s: '4.28ms HOP' },
+        { x: W * 0.66, y: H * 0.52, t: 'TILTGUARD RMS', s: '1.93µs BITMASK' },
+        { x: W * 0.88, y: H * 0.52, t: 'NSE / MCX COLO', s: '1.45ms MATCH' }
+      ];
+
+      for (let l = -1; l <= 1; l++) {
+        const ly = H * 0.52 + l * 16;
+        ctx.strokeStyle = '#242E3E';
+        ctx.lineWidth = 1.4;
+        ctx.beginPath(); ctx.moveTo(nodes[0].x, ly); ctx.lineTo(nodes[3].x, ly); ctx.stroke();
+      }
+
+      sonarPackets.forEach(pk => {
+        if (streamActive) {
+          pk.p += pk.v;
+          if (pk.p > 1) pk.p -= 1;
+        }
+        const px = nodes[0].x + pk.p * (nodes[3].x - nodes[0].x);
+        const py = H * 0.52 + (pk.lane - 1) * 16;
+        ctx.fillStyle = pk.col;
+        ctx.fillRect(px - 5, py - 3, 10, 6);
+      });
+
+      nodes.forEach(n => {
+        ctx.fillStyle = '#0A0D12';
+        ctx.strokeStyle = '#FF9900';
+        ctx.lineWidth = 1.4;
+        ctx.fillRect(n.x - 52, n.y - 25, 104, 50);
+        ctx.strokeRect(n.x - 52, n.y - 25, 104, 50);
+        ctx.fillStyle = '#F0F4F8';
+        ctx.font = 'bold 9px JetBrains Mono';
+        ctx.fillText(n.t, n.x - 45, n.y - 4);
+        ctx.fillStyle = '#00E676';
+        ctx.font = '9px JetBrains Mono';
+        ctx.fillText(n.s, n.x - 45, n.y + 12);
+      });
+
+      ctx.fillStyle = '#9BA8BC';
+      ctx.font = '9.5px JetBrains Mono';
+      ctx.fillText('MUMBAI 3-HOP CHILD-SLICE ROUTER (TOTAL P95: 5.73ms VS 6.61ms SLA)', 12, H - 8);
+    }
+
+    // =========================================================================
+    // POLYGLOT SOURCE INSPECTOR
+    // =========================================================================
+    function selectPolyTab(key, btn) {
+      document.querySelectorAll('#poly-tabs .win-btn').forEach(b => b.classList.remove('active'));
+      if (btn) btn.classList.add('active');
+      const src = DATA.polyglotSources || {};
+      document.getElementById('poly-code-viewer').textContent =
+        src[key] || '// Source module loaded from repository';
+    }
+
+    // =========================================================================
+    // MASTER 60FPS LOOP & EVENT LISTENERS
+    // =========================================================================
+    function masterLoop() {
+      frameTick++;
+      if (streamActive && frameTick % 12 === 0) {
+        candleOffset++;
+      }
+      drawWin1Canvas();
+      drawWin3EcgCanvas();
+      drawWin4SonarCanvas();
+      requestAnimationFrame(masterLoop);
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      updateWin1Table();
+      initWin2Catalysts();
+      recalcWebMcpPayoff();
+      initWin3Sessions();
+      updateEmsSlices();
+      renderBlotter();
+      selectPolyTab('rust', document.querySelector('#poly-tabs .win-btn'));
+
+      // 3D rotation drag on Window 1
+      const c1 = document.getElementById('canvas-w1');
+      c1.addEventListener('mousedown', e => { dragging3D = true; prevX = e.clientX; prevY = e.clientY; });
+      window.addEventListener('mousemove', e => {
+        if (!dragging3D) return;
+        yaw3D += (e.clientX - prevX) * 0.01;
+        pitch3D = Math.max(0.15, Math.min(1.2, pitch3D + (e.clientY - prevY) * 0.01));
+        prevX = e.clientX; prevY = e.clientY;
+      });
+      window.addEventListener('mouseup', () => { dragging3D = false; });
+
+      // Interactive Strike/P&L Hover Crosshair on Window 2 Payoff Canvas
+      const c2 = document.getElementById('canvas-w2');
+      c2.addEventListener('mousemove', e => {
+        const rect = c2.getBoundingClientRect();
+        payoffHoverX = e.clientX - rect.left;
+        recalcWebMcpPayoff();
+      });
+      c2.addEventListener('mouseleave', () => {
+        payoffHoverX = null;
+        recalcWebMcpPayoff();
+      });
+
+      const params = new URLSearchParams(window.location.search);
+      const ws = parseInt(params.get('ws') || '0', 10);
+      if (ws >= 1 && ws <= 4) switchViewMode(ws);
+
+      requestAnimationFrame(masterLoop);
+    });
+
+    window.addEventListener('resize', () => {
+      recalcWebMcpPayoff();
+    });
+  </script>
+</body>
+</html>
