@@ -1,0 +1,28 @@
+[
+  {
+    "id": "sahi-news-0001",
+    "title": "Over 6 Million Downloads",
+    "summary": "Built byexperienced traders & technologistsBacked bythe investors of world leading companies",
+    "url": "https://www.sahi.com/news",
+    "harvested_at": "2026-09-29T16:07:00.144547+00:00",
+    "tickers": [
+      "BROAD_MARKET"
+    ],
+    "sentiment_polarity": 0.0,
+    "volatility_shock_multiplier": 1.0,
+    "source": "https://www.sahi.com/news"
+  },
+  {
+    "id": "sahi-news-0002",
+    "title": "Ready to Trade the Sahi Way?",
+    "summary": "Ready to Trade the Sahi Way?",
+    "url": "https://www.sahi.com/news",
+    "harvested_at": "2026-09-29T16:07:00.144711+00:00",
+    "tickers": [
+      "BROAD_MARKET"
+    ],
+    "sentiment_polarity": 0.0,
+    "volatility_shock_multiplier": 1.0,
+    "source": "https://www.sahi.com/news"
+  }
+]
