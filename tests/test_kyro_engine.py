@@ -7,28 +7,50 @@ leg ordering, and harvested dataset integrity across all 4 quantitative pillars.
 """
 
 import os
+import sys
 import json
 import time
 import numpy as np
 import pytest
 
-from sahi.engine.kyro_execution_engine import (
-    VectorizedBSMEngine,
-    GEXFlowEngine,
-    RegimeGatedMLMetaController,
-    PulseToPayoffCompiler,
-    TiltGuardRMS,
-    SlippageShieldEngine,
-    SahiKyroExecutionEngine,
-    OrderRequest,
-    OrderSide,
-    OrderType,
-    OptionType,
-    MarketRegime,
-    RMSVerdict,
-    TraderAccountState,
-    Level2Depth,
-)
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
+
+try:
+    from engine.kyro_execution_engine import (
+        VectorizedBSMEngine,
+        GEXFlowEngine,
+        RegimeGatedMLMetaController,
+        PulseToPayoffCompiler,
+        TiltGuardRMS,
+        SlippageShieldEngine,
+        SahiKyroExecutionEngine,
+        OrderRequest,
+        OrderSide,
+        OrderType,
+        OptionType,
+        MarketRegime,
+        RMSVerdict,
+        TraderAccountState,
+        Level2Depth,
+    )
+except ImportError:
+    from sahi.engine.kyro_execution_engine import (
+        VectorizedBSMEngine,
+        GEXFlowEngine,
+        RegimeGatedMLMetaController,
+        PulseToPayoffCompiler,
+        TiltGuardRMS,
+        SlippageShieldEngine,
+        SahiKyroExecutionEngine,
+        OrderRequest,
+        OrderSide,
+        OrderType,
+        OptionType,
+        MarketRegime,
+        RMSVerdict,
+        TraderAccountState,
+        Level2Depth,
+    )
 
 DATA_DIR = os.path.join(os.path.dirname(os.path.dirname(__file__)), "data")
 

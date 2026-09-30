@@ -13,21 +13,36 @@ Exposes all 4 quantitative pillars + the interactive Kinetic Fortress Terminal:
 
 import json
 import mimetypes
+import os
+import sys
 import time
 from pathlib import Path
 from typing import Any, Dict
 
 import numpy as np
 
-from sahi.engine.kyro_execution_engine import (
-    SahiKyroExecutionEngine,
-    OrderRequest,
-    OrderSide,
-    OrderType,
-    OptionType,
-    Level2Depth,
-    TraderAccountState,
-)
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
+
+try:
+    from engine.kyro_execution_engine import (
+        SahiKyroExecutionEngine,
+        OrderRequest,
+        OrderSide,
+        OrderType,
+        OptionType,
+        Level2Depth,
+        TraderAccountState,
+    )
+except ImportError:
+    from sahi.engine.kyro_execution_engine import (
+        SahiKyroExecutionEngine,
+        OrderRequest,
+        OrderSide,
+        OrderType,
+        OptionType,
+        Level2Depth,
+        TraderAccountState,
+    )
 
 ROOT_DIR = Path(__file__).resolve().parent.parent
 DOCS_DIR = ROOT_DIR / "docs"

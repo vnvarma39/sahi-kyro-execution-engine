@@ -9,6 +9,8 @@ on:
 jobs:
   quant-and-webmcp-verification:
     runs-on: ubuntu-latest
+    env:
+      PYTHONPATH: .
     steps:
       - name: Checkout Sahi Kyro-Execution Repository
         uses: actions/checkout@v4
